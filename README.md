@@ -14,6 +14,7 @@ npm install tock-vue-kit-editor
 
 Initialize the Tock Vue Kit and then call the editor component :
 
+```html
 <script setup lang="ts">
 import "tock-vue-kit/dist/style.css";
 import { renderChat } from "tock-vue-kit";
@@ -38,3 +39,4 @@ onMounted(() => {
         <TvkEditor></TvkEditor>
     </aside>
 </template>
+```
