@@ -37,6 +37,8 @@ onMounted(() => {
 </script>
 
 <template>
+    <div ref="chatTarget"></div>
+    
     <aside class="editor" v-if="displayEditor">
         <TvkEditor></TvkEditor>
     </aside>
