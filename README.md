@@ -10,7 +10,9 @@ A Vue 3 application integrating the Tock Vue Kit
 
 Install the editor :
 
+```
 npm install tock-vue-kit-editor
+```
 
 Initialize the Tock Vue Kit and then call the editor component :
 
