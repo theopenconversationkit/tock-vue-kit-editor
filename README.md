@@ -4,7 +4,7 @@ A Vue 3 component for easy editing of Tock Vue Kit options and css variables
 
 ## Prerequisites
 
-A Vue 3 application integrating the Tock Vue Kit
+A Vue 3 application integrating the [Tock Vue Kit](https://github.com/theopenconversationkit/tock-vue-kit)
 
 ## Quick Start
 
