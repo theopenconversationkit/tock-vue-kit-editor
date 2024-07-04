@@ -15,8 +15,7 @@ export const templates: Template[] = [
     description: "Classic messenger style",
     options: {
       localStorage: {
-        enabled: true,
-        prefix: "messenger",
+        enabled: true
       },
       preferences: {
         messages: {
@@ -70,8 +69,7 @@ export const templates: Template[] = [
     tockUrl: "http://localhost:8080/io/01/cmb/web",
     options: {
       localStorage: {
-        enabled: true,
-        prefix: "vertical",
+        enabled: true
       },
       preferences: {
         messages: {
@@ -154,8 +152,7 @@ export const templates: Template[] = [
     tockUrl: "http://localhost:8080/io/01/cmb/web",
     options: {
       localStorage: {
-        enabled: true,
-        prefix: "contemporary",
+        enabled: true
       },
       // initialization: {
       //   extraHeaders: {
@@ -181,8 +178,7 @@ export const templates: Template[] = [
     tockUrl: "http://localhost:8080/io/01/cmb/web",
     options: {
       localStorage: {
-        enabled: true,
-        prefix: "light",
+        enabled: true
       },
       preferences: {
         messages: {
@@ -243,7 +239,6 @@ export const templates: Template[] = [
     options: {
       localStorage: {
         enabled: true,
-        prefix: "ladylike",
         maxNumberMessages: 50,
       },
       initialization: {
@@ -343,8 +338,7 @@ export const templates: Template[] = [
     tockUrl: "http://localhost:8080/io/01/cmb/web",
     options: {
       localStorage: {
-        enabled: true,
-        prefix: "square",
+        enabled: true
       },
       preferences: {
         messages: {
@@ -381,8 +375,7 @@ export const templates: Template[] = [
     tockUrl: "http://localhost:8080/io/01/cmb/web",
     options: {
       localStorage: {
-        enabled: true,
-        prefix: "funny",
+        enabled: true
       },
       preferences: {
         messages: {
@@ -456,8 +449,7 @@ export const templates: Template[] = [
     tockUrl: "http://localhost:8080/io/01/cmb/web",
     options: {
       localStorage: {
-        enabled: true,
-        prefix: "query_answer",
+        enabled: true
       },
       preferences: {
         messages: {
@@ -541,8 +533,7 @@ export const templates: Template[] = [
     tockUrl: "http://localhost:8080/io/01/cmb/web",
     options: {
       localStorage: {
-        enabled: true,
-        prefix: "qa_mode_splitted",
+        enabled: true
       },
       preferences: {
         messages: {

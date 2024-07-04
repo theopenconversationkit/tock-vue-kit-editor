@@ -1,6 +1,6 @@
 # tock-vue-kit-editor
 
-A Vue 3 component for easy editing of Tock Vue Kit options and css variables
+A Vue 3 component for easy editing of [Tock Vue Kit](https://github.com/theopenconversationkit/tock-vue-kit) options and css variables
 
 ## Prerequisites
 
@@ -8,9 +8,10 @@ A Vue 3 application integrating the [Tock Vue Kit](https://github.com/theopencon
 
 ## Quick Start
 
-Install the editor :
+Install the Tock Vue Kit and the Tock Vue Kit Editor :
 
 ```
+npm install tock-vue-kit
 npm install tock-vue-kit-editor
 ```
 
@@ -44,3 +45,5 @@ onMounted(() => {
     </aside>
 </template>
 ```
+
+To ensure correct operation, make sure the Tock Vue kit is initialized before instantiating the editor.
