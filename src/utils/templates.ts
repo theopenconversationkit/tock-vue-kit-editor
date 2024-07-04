@@ -1,17 +1,19 @@
 import type { Template } from "../models/template";
 import { personSvg, robotSvg } from "./images";
 
+const tockEndpointUrl = "https://demo-bot.tock.ai/io/tock/tockbot/web"
+
 export const templates: Template[] = [
   {
     active: false,
     name: "Default",
     description: "Default settings only",
-    tockUrl: "http://localhost:8080/io/01/cmb/web",
+    tockUrl: tockEndpointUrl,
   },
   {
     active: false,
     name: "Messenger",
-    tockUrl: "http://localhost:8080/io/01/cmb/web",
+    tockUrl: tockEndpointUrl,
     description: "Classic messenger style",
     options: {
       localStorage: {
@@ -66,7 +68,7 @@ export const templates: Template[] = [
     active: false,
     name: "Vertical",
     description: "Left-aligned, image avatars",
-    tockUrl: "http://localhost:8080/io/01/cmb/web",
+    tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
         enabled: true
@@ -149,7 +151,7 @@ export const templates: Template[] = [
     active: false,
     name: "Contemporary",
     description: "A contemporary look",
-    tockUrl: "http://localhost:8080/io/01/cmb/web",
+    tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
         enabled: true
@@ -175,7 +177,7 @@ export const templates: Template[] = [
     active: false,
     name: "Light",
     description: "Minimalist, left-aligned layout",
-    tockUrl: "http://localhost:8080/io/01/cmb/web",
+    tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
         enabled: true
@@ -235,7 +237,7 @@ export const templates: Template[] = [
     active: false,
     name: "Ladylike",
     description: "Elegance is not to be noticed, but to be remembered",
-    tockUrl: "http://localhost:8080/io/01/cmb/web",
+    tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
         enabled: true,
@@ -335,7 +337,7 @@ export const templates: Template[] = [
     active: false,
     name: "Square",
     description: "Being a square keeps you from going around in circles",
-    tockUrl: "http://localhost:8080/io/01/cmb/web",
+    tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
         enabled: true
@@ -372,7 +374,7 @@ export const templates: Template[] = [
     active: false,
     name: "Funny",
     description: "Happy and colorful",
-    tockUrl: "http://localhost:8080/io/01/cmb/web",
+    tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
         enabled: true
@@ -446,7 +448,7 @@ export const templates: Template[] = [
     active: false,
     name: "Query/Answer",
     description: "Query/Answer mode",
-    tockUrl: "http://localhost:8080/io/01/cmb/web",
+    tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
         enabled: true
@@ -530,7 +532,7 @@ export const templates: Template[] = [
     active: false,
     name: "Query/Answer splitted",
     description: "Query/Answer mode with splitted sources display",
-    tockUrl: "http://localhost:8080/io/01/cmb/web",
+    tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
         enabled: true
