@@ -19,15 +19,15 @@ export function parseVarKey(varKey: string) {
 
 export function grabVariables() {
   const variables: CssVariable[] = [];
-
   Array.from(document.styleSheets).forEach((sheet) => {
-    if (!sheet.href) {
+    // if (!sheet.href) {
       Array.from(sheet.cssRules).forEach((rule) => {
         if (rule instanceof CSSStyleRule) {
           if (rule.selectorText === ":root") {
             let isPristine = !!rule.style.getPropertyValue(
               "--tvk--default-sheet"
             );
+
             Array.from(rule.styleMap as any).forEach((map: any) => {
               if (map[0].startsWith(tvkPrefix)) {
                 const varKey: string = map[0];
@@ -55,7 +55,7 @@ export function grabVariables() {
           }
         }
       });
-    }
+    // }
   });
 
   let root = document.documentElement;

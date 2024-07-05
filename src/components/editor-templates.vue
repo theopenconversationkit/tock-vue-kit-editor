@@ -21,7 +21,7 @@ function applyTemplate(template: Template) {
   // if (root.computedStyleMap) {
   //   root.computedStyleMap().forEach((value, key) => {
   //     if (key.startsWith("--tvk_")) {
-  //       console.log(key, value);
+  //       // console.log(key, value);
   //       root.style.setProperty(key, null);
   //     }
   //   });

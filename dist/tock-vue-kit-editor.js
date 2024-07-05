@@ -3493,7 +3493,7 @@ function Kt(e) {
 function Xt() {
   const e = [];
   Array.from(document.styleSheets).forEach((o) => {
-    o.href || Array.from(o.cssRules).forEach((n) => {
+    Array.from(o.cssRules).forEach((n) => {
       if (n instanceof CSSStyleRule && n.selectorText === ":root") {
         let i = !!n.style.getPropertyValue(
           "--tvk--default-sheet"
