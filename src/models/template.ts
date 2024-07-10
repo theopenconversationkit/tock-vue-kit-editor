@@ -14,4 +14,5 @@ export interface Template {
   tockUrl: string;
   options?: DeepPartial<AppOptions>;
   styling?: StringMap;
+  _confirmTemplateChangeWarning?: boolean;
 }

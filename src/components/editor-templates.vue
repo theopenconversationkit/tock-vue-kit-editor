@@ -10,10 +10,34 @@ const mainStore = useEditorStore();
 
 const Templates = ref(templates);
 
+function tryApplyTemplate(template: Template) {
+  if (mainStore.templateDirtyState) {
+    cancelApplyTemplate();
+    template._confirmTemplateChangeWarning = true;
+  } else {
+    applyTemplate(template);
+  }
+}
+
+function confirmApplyTemplate(template: Template) {
+  mainStore.templateDirtyState = false;
+  cancelApplyTemplate();
+  applyTemplate(template);
+}
+
+function cancelApplyTemplate() {
+  Templates.value.forEach((c) => {
+    c._confirmTemplateChangeWarning = false;
+  });
+}
+
 function applyTemplate(template: Template) {
+  if (template._confirmTemplateChangeWarning) return;
+
   Templates.value.forEach((c) => {
     c.active = false;
   });
+
   template.active = true;
 
   let root = document.documentElement;
@@ -67,13 +91,37 @@ function applyTemplate(template: Template) {
         v-for="template in Templates"
         class="templates-list-entry cursor-pointer py-2 px-3"
         :class="{ active: template.active }"
-        @click="applyTemplate(template)"
       >
-        <h6 class="mb-0">
-          {{ template.name }}
-        </h6>
-        <div v-if="template.description" class="text-small mt-1">
-          {{ template.description }}
+        <div @click="tryApplyTemplate(template)">
+          <h6 class="mb-0">
+            {{ template.name }}
+          </h6>
+          <div v-if="template.description" class="text-small mt-1">
+            {{ template.description }}
+          </div>
+        </div>
+
+        <div
+          v-if="template._confirmTemplateChangeWarning"
+          class="alert alert-danger my-2 text-small"
+        >
+          Your changes will be lost. Are you sure you want to apply this
+          template and reset all your recent changes?
+
+          <div class="text-end">
+            <button
+              class="btn btn-primary btn-sm me-2"
+              @click="confirmApplyTemplate(template)"
+            >
+              Yes
+            </button>
+            <button
+              class="btn btn-danger btn-sm"
+              @click="cancelApplyTemplate()"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ export const useEditorStore = defineStore("editorStore", () => {
   const stylingTargetedVar: Ref<string | undefined> = ref(undefined);
   const outputFormat: Ref<OutputFormats> = ref(OutputFormats.html);
   const outputMinified: Ref<boolean> = ref(false);
+  const templateDirtyState: Ref<boolean> = ref(false);
 
   // function initStudio() {
   //   const customization = customizations.find((c) => c.active);
@@ -79,6 +80,7 @@ export const useEditorStore = defineStore("editorStore", () => {
     stylingTargetedVar,
     outputFormat,
     outputMinified,
+    templateDirtyState,
     // initStudio,
     setCurrentCustomizationName,
     refreshEditorPanels,

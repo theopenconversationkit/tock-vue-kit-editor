@@ -1,13 +1,13 @@
 import type { Template } from "../models/template";
 import { personSvg, robotSvg } from "./images";
 
-const tockEndpointUrl = "https://demo-bot.tock.ai/io/tock/tockbot/web"
+const tockEndpointUrl = "https://demo-bot.tock.ai/io/tock/tockbot/web";
 
 export const templates: Template[] = [
   {
     active: false,
     name: "Default",
-    description: "Default settings only",
+    description: "Default settings only. No local storage.",
     tockUrl: tockEndpointUrl,
   },
   {
@@ -17,7 +17,10 @@ export const templates: Template[] = [
     description: "Classic messenger style",
     options: {
       localStorage: {
-        enabled: true
+        enabled: true,
+      },
+      initialization: {
+        welcomeMessage: "Welcome. How can i can help you ?",
       },
       preferences: {
         messages: {
@@ -71,7 +74,7 @@ export const templates: Template[] = [
     tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
-        enabled: true
+        enabled: true,
       },
       preferences: {
         messages: {
@@ -154,7 +157,7 @@ export const templates: Template[] = [
     tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
-        enabled: true
+        enabled: true,
       },
       // initialization: {
       //   extraHeaders: {
@@ -180,7 +183,7 @@ export const templates: Template[] = [
     tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
-        enabled: true
+        enabled: true,
       },
       preferences: {
         messages: {
@@ -340,7 +343,7 @@ export const templates: Template[] = [
     tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
-        enabled: true
+        enabled: true,
       },
       preferences: {
         messages: {
@@ -377,7 +380,7 @@ export const templates: Template[] = [
     tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
-        enabled: true
+        enabled: true,
       },
       preferences: {
         messages: {
@@ -451,7 +454,7 @@ export const templates: Template[] = [
     tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
-        enabled: true
+        enabled: true,
       },
       preferences: {
         messages: {
@@ -535,7 +538,7 @@ export const templates: Template[] = [
     tockUrl: tockEndpointUrl,
     options: {
       localStorage: {
-        enabled: true
+        enabled: true,
       },
       preferences: {
         messages: {

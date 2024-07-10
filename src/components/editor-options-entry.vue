@@ -80,22 +80,30 @@ const deep_value = (object: any, path: string) => {
   }, object);
 };
 
+function updateTvkOptionProxy(
+  fullPath: string,
+  value: string | number | boolean | undefined
+) {
+  mainStore.templateDirtyState = true;
+  updateTvkOption(fullPath, value);
+}
+
 const updateValue = debounce((val: string): void => {
-  updateTvkOption(fullPath, val);
+  updateTvkOptionProxy(fullPath, val);
   valueModel.value = val;
   mainStore.refreshEditorPanels();
 }, debounceDelay);
 
 watch(isImageDefDefined, (newState, oldState): void => {
   if (!newState) {
-    updateTvkOption(fullPath, undefined);
+    updateTvkOptionProxy(fullPath, undefined);
     valueModel.value = undefined;
   }
 });
 
 const updateImageDef = debounce((def: string, val: string): void => {
   const defPath = [fullPath, def].join(".");
-  updateTvkOption(defPath, val);
+  updateTvkOptionProxy(defPath, val);
   let newValueModel = valueModel.value ? valueModel.value : {};
   newValueModel[def] = val;
   valueModel.value = newValueModel;
@@ -104,18 +112,18 @@ const updateImageDef = debounce((def: string, val: string): void => {
 const updateKeyValueKey = debounce((oldKey: string, newKey: string): void => {
   valueModel.value[newKey] = valueModel.value[oldKey];
   delete valueModel.value[oldKey];
-  updateTvkOption(fullPath, valueModel.value);
+  updateTvkOptionProxy(fullPath, valueModel.value);
 }, debounceDelay);
 
 const updateKeyValueValue = debounce((key: string, newVal: string): void => {
   valueModel.value[key] = newVal;
-  updateTvkOption(fullPath, valueModel.value);
+  updateTvkOptionProxy(fullPath, valueModel.value);
 }, debounceDelay);
 
 function deleteKeyValue(key: string) {
   delete valueModel.value[key];
   if (Object.keys(valueModel.value).length < 1) valueModel.value = undefined;
-  updateTvkOption(fullPath, valueModel.value);
+  updateTvkOptionProxy(fullPath, valueModel.value);
 }
 
 const NewHeaderName = "New-Header-Name";

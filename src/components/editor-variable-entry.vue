@@ -60,6 +60,8 @@ function updateVariable(value: string) {
   root.style.setProperty(props.variable!.key, value as string);
   const target = props.variables?.find((v) => v.key === props.variable!.key);
   if (target) target.value = value;
+
+  mainStore.templateDirtyState = true;
 }
 
 function resetVariable() {
