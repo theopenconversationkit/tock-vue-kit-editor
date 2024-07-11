@@ -152,13 +152,19 @@ function addNewHeader(): void {
 </script>
 
 <template>
-  <div class="p-3 border-bottom" :class="{ inactive: !isEntryActive }">
+  <div
+    class="p-3 border-bottom"
+    :class="{
+      inactive: !isEntryActive,
+      'tvke-secondary-bg-subtle': valueModel != props.value.default,
+    }"
+  >
     <label
       class="form-label lh-1 d-flex gap-4 align-items-center justify-content-between position-relative"
     >
       <span
         class="text-nowrap"
-        :class="{ 'fst-italic': valueModel != props.value.default }"
+        :class="{ 'fw-bold': valueModel != props.value.default }"
       >
         {{ props.value.title }}
       </span>

@@ -4842,11 +4842,14 @@ const q = fs("editorStore", () => {
       var b, _, E;
       const w = mt("tooltip");
       return y(), I("div", {
-        class: H(["p-3 border-bottom", { inactive: !d(n) }])
+        class: H(["p-3 border-bottom", {
+          inactive: !d(n),
+          "tvke-secondary-bg-subtle": d(i) != o.value.default
+        }])
       }, [
         M("label", ir, [
           M("span", {
-            class: H(["text-nowrap", { "fst-italic": d(i) != o.value.default }])
+            class: H(["text-nowrap", { "fw-bold": d(i) != o.value.default }])
           }, V(o.value.title), 3),
           W((y(), I("span", sr, [
             fe(V(d(r)), 1)
