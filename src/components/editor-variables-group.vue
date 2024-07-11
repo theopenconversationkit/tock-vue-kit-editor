@@ -36,6 +36,7 @@ mainStore.$onAction(({ name, store, args, after }) => {
         const parsing = parseVarKey(mainStore.stylingTargetedVar);
 
         let shouldShow = true;
+
         if (props.path!.length < parsing.categories.length) {
           shouldShow = false;
         } else {

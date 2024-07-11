@@ -1,7 +1,8 @@
-import { ref, computed, type Ref } from "vue";
+import { ref, type Ref } from "vue";
 import { defineStore } from "pinia";
 import { EditorPanels, OutputFormats } from "../models/editor";
 import { parseVarKey } from "../utils/variables";
+import { getCurrentTheme } from "../utils/misc";
 
 export const useEditorStore = defineStore("editorStore", () => {
   const currentCustomizationName: Ref<string | undefined> = ref(undefined);
@@ -11,14 +12,6 @@ export const useEditorStore = defineStore("editorStore", () => {
   const outputFormat: Ref<OutputFormats> = ref(OutputFormats.html);
   const outputMinified: Ref<boolean> = ref(false);
   const templateDirtyState: Ref<boolean> = ref(false);
-
-  // function initStudio() {
-  //   const customization = customizations.find((c) => c.active);
-  //   if (customization) {
-  //     const mainStoreInstance = useEditorStore();
-  //     mainStoreInstance.setCurrentCustomizationName(customization.name);
-  //   }
-  // }
 
   function refreshEditorPanels() {
     // empty action watched by editor components to refresh data
@@ -61,8 +54,31 @@ export const useEditorStore = defineStore("editorStore", () => {
 
     const mainStoreInstance = useEditorStore();
     const parsing = parseVarKey(variable);
+
+    // hack to match non-thematic color variables to their thematic version
+    if (parsing.nameSpace[0] === "colors") {
+      if (
+        ![
+          "brand",
+          "brand-hue",
+          "brand-lightness",
+          "brand-saturation",
+          "light",
+          "dark",
+        ].includes(parsing.nameSpace[1])
+      ) {
+        const theme = getCurrentTheme();
+        let splitting = variable.split("_");
+        splitting.splice(2, 0, theme);
+        variable = splitting.join("_");
+      }
+    }
+
     mainStoreInstance.setStylingCategory(parsing.categories[0]);
-    mainStoreInstance.targetStylingVariable(variable);
+    setTimeout(() => {
+      // Timeout required to let the targeted styling category panel to be displayed before searching for the variable
+      mainStoreInstance.targetStylingVariable(variable);
+    });
   }
 
   function targetStylingVariable(variable: string) {
@@ -81,7 +97,6 @@ export const useEditorStore = defineStore("editorStore", () => {
     outputFormat,
     outputMinified,
     templateDirtyState,
-    // initStudio,
     setCurrentCustomizationName,
     refreshEditorPanels,
     setEditorPanel,

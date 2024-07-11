@@ -171,8 +171,8 @@ const Jn = async (e, t, o) => {
       fn: D
     } = a[C], {
       x: O,
-      y: j,
-      data: T,
+      y: k,
+      data: L,
       reset: w
     } = await D({
       x: u,
@@ -188,11 +188,11 @@ const Jn = async (e, t, o) => {
         floating: t
       }
     });
-    u = O ?? u, f = j ?? f, m = {
+    u = O ?? u, f = k ?? f, m = {
       ...m,
       [N]: {
         ...m[N],
-        ...T
+        ...L
       }
     }, w && S <= 50 && (S++, typeof w == "object" && (w.placement && (g = w.placement), w.rects && (c = w.rects === !0 ? await r.getElementRects({
       reference: e,
@@ -237,7 +237,7 @@ async function bt(e, t) {
     y: i,
     width: r.floating.width,
     height: r.floating.height
-  } : r.reference, j = await (s.getOffsetParent == null ? void 0 : s.getOffsetParent(a.floating)), T = await (s.isElement == null ? void 0 : s.isElement(j)) ? await (s.getScale == null ? void 0 : s.getScale(j)) || {
+  } : r.reference, k = await (s.getOffsetParent == null ? void 0 : s.getOffsetParent(a.floating)), L = await (s.isElement == null ? void 0 : s.isElement(k)) ? await (s.getScale == null ? void 0 : s.getScale(k)) || {
     x: 1,
     y: 1
   } : {
@@ -246,14 +246,14 @@ async function bt(e, t) {
   }, w = Re(s.convertOffsetParentRelativeRectToViewportRelativeRect ? await s.convertOffsetParentRelativeRectToViewportRelativeRect({
     elements: a,
     rect: O,
-    offsetParent: j,
+    offsetParent: k,
     strategy: l
   }) : O);
   return {
-    top: (D.top - w.top + S.top) / T.y,
-    bottom: (w.bottom - D.bottom + S.bottom) / T.y,
-    left: (D.left - w.left + S.left) / T.x,
-    right: (w.right - D.right + S.right) / T.x
+    top: (D.top - w.top + S.top) / L.y,
+    bottom: (w.bottom - D.bottom + S.bottom) / L.y,
+    left: (D.left - w.left + S.left) / L.x,
+    right: (w.right - D.right + S.right) / L.x
   };
 }
 const Kn = (e) => ({
@@ -277,15 +277,15 @@ const Kn = (e) => ({
     const f = Po(u), g = {
       x: o,
       y: n
-    }, m = Bt(i), S = Vt(m), C = await r.getDimensions(c), N = m === "y", D = N ? "top" : "left", O = N ? "bottom" : "right", j = N ? "clientHeight" : "clientWidth", T = s.reference[S] + s.reference[m] - g[m] - s.floating[S], w = g[m] - s.reference[m], b = await (r.getOffsetParent == null ? void 0 : r.getOffsetParent(c));
-    let _ = b ? b[j] : 0;
-    (!_ || !await (r.isElement == null ? void 0 : r.isElement(b))) && (_ = a.floating[j] || s.floating[S]);
-    const A = T / 2 - w / 2, k = _ / 2 - C[S] / 2 - 1, h = je(f[D], k), v = je(f[O], k), p = h, x = _ - C[S] - v, E = _ / 2 - C[S] / 2 + A, L = Ct(p, E, x), G = !l.arrow && ie(i) != null && E !== L && s.reference[S] / 2 - (E < p ? h : v) - C[S] / 2 < 0, $ = G ? E < p ? E - p : E - x : 0;
+    }, m = Bt(i), S = Vt(m), C = await r.getDimensions(c), N = m === "y", D = N ? "top" : "left", O = N ? "bottom" : "right", k = N ? "clientHeight" : "clientWidth", L = s.reference[S] + s.reference[m] - g[m] - s.floating[S], w = g[m] - s.reference[m], b = await (r.getOffsetParent == null ? void 0 : r.getOffsetParent(c));
+    let _ = b ? b[k] : 0;
+    (!_ || !await (r.isElement == null ? void 0 : r.isElement(b))) && (_ = a.floating[k] || s.floating[S]);
+    const A = L / 2 - w / 2, j = _ / 2 - C[S] / 2 - 1, h = je(f[D], j), v = je(f[O], j), p = h, x = _ - C[S] - v, E = _ / 2 - C[S] / 2 + A, T = Ct(p, E, x), G = !l.arrow && ie(i) != null && E !== T && s.reference[S] / 2 - (E < p ? h : v) - C[S] / 2 < 0, $ = G ? E < p ? E - p : E - x : 0;
     return {
       [m]: g[m] + $,
       data: {
-        [m]: L,
-        centerOffset: E - L - $,
+        [m]: T,
+        centerOffset: E - T - $,
         ...G && {
           alignmentOffset: $
         }
@@ -318,16 +318,16 @@ const qn = function(e) {
       } = Se(e, t), C = f !== void 0 || g === oo ? Xn(f || null, m, g) : g, N = await bt(t, S), D = ((o = r.autoPlacement) == null ? void 0 : o.index) || 0, O = C[D];
       if (O == null)
         return {};
-      const j = zo(O, s, await (l.isRTL == null ? void 0 : l.isRTL(c.floating)));
+      const k = zo(O, s, await (l.isRTL == null ? void 0 : l.isRTL(c.floating)));
       if (a !== O)
         return {
           reset: {
             placement: C[0]
           }
         };
-      const T = [N[pe(O)], N[j[0]], N[j[1]]], w = [...((n = r.autoPlacement) == null ? void 0 : n.overflows) || [], {
+      const L = [N[pe(O)], N[k[0]], N[k[1]]], w = [...((n = r.autoPlacement) == null ? void 0 : n.overflows) || [], {
         placement: O,
-        overflows: T
+        overflows: L
       }], b = C[D + 1];
       if (b)
         return {
@@ -348,19 +348,19 @@ const qn = function(e) {
           // Check only the mainAxis.
           h.overflows[0]
         ), h.overflows];
-      }).sort((h, v) => h[1] - v[1]), k = ((i = _.filter((h) => h[2].slice(
+      }).sort((h, v) => h[1] - v[1]), j = ((i = _.filter((h) => h[2].slice(
         0,
         // Aligned placements should not check their opposite crossAxis
         // side.
         ie(h[0]) ? 2 : 3
       ).every((v) => v <= 0))[0]) == null ? void 0 : i[0]) || _[0][0];
-      return k !== a ? {
+      return j !== a ? {
         data: {
           index: D + 1,
           overflows: w
         },
         reset: {
-          placement: k
+          placement: j
         }
       } : {};
     }
@@ -389,20 +389,20 @@ const qn = function(e) {
       } = Se(e, t);
       if ((o = s.arrow) != null && o.alignmentOffset)
         return {};
-      const D = pe(i), O = pe(a) === a, j = await (l.isRTL == null ? void 0 : l.isRTL(c.floating)), T = g || (O || !C ? [ht(a)] : Fn(a));
-      !g && S !== "none" && T.push(...Hn(a, C, S, j));
-      const w = [a, ...T], b = await bt(t, N), _ = [];
+      const D = pe(i), O = pe(a) === a, k = await (l.isRTL == null ? void 0 : l.isRTL(c.floating)), L = g || (O || !C ? [ht(a)] : Fn(a));
+      !g && S !== "none" && L.push(...Hn(a, C, S, k));
+      const w = [a, ...L], b = await bt(t, N), _ = [];
       let A = ((n = s.flip) == null ? void 0 : n.overflows) || [];
       if (u && _.push(b[D]), f) {
-        const p = zo(i, r, j);
+        const p = zo(i, r, k);
         _.push(b[p[0]], b[p[1]]);
       }
       if (A = [...A, {
         placement: i,
         overflows: _
       }], !_.every((p) => p <= 0)) {
-        var k, h;
-        const p = (((k = s.flip) == null ? void 0 : k.index) || 0) + 1, x = w[p];
+        var j, h;
+        const p = (((j = s.flip) == null ? void 0 : j.index) || 0) + 1, x = w[p];
         if (x)
           return {
             data: {
@@ -413,13 +413,13 @@ const qn = function(e) {
               placement: x
             }
           };
-        let E = (h = A.filter((L) => L.overflows[0] <= 0).sort((L, G) => L.overflows[1] - G.overflows[1])[0]) == null ? void 0 : h.placement;
+        let E = (h = A.filter((T) => T.overflows[0] <= 0).sort((T, G) => T.overflows[1] - G.overflows[1])[0]) == null ? void 0 : h.placement;
         if (!E)
           switch (m) {
             case "bestFit": {
               var v;
-              const L = (v = A.map((G) => [G.placement, G.overflows.filter(($) => $ > 0).reduce(($, R) => $ + R, 0)]).sort((G, $) => G[1] - $[1])[0]) == null ? void 0 : v[0];
-              L && (E = L);
+              const T = (v = A.map((G) => [G.placement, G.overflows.filter(($) => $ > 0).reduce(($, R) => $ + R, 0)]).sort((G, $) => G[1] - $[1])[0]) == null ? void 0 : v[0];
+              T && (E = T);
               break;
             }
             case "initialPlacement":
@@ -518,12 +518,12 @@ const oi = function(e) {
       }, u = await bt(t, l), f = Ke(pe(i)), g = Eo(f);
       let m = c[g], S = c[f];
       if (s) {
-        const N = g === "y" ? "top" : "left", D = g === "y" ? "bottom" : "right", O = m + u[N], j = m - u[D];
-        m = Ct(O, m, j);
+        const N = g === "y" ? "top" : "left", D = g === "y" ? "bottom" : "right", O = m + u[N], k = m - u[D];
+        m = Ct(O, m, k);
       }
       if (r) {
-        const N = f === "y" ? "top" : "left", D = f === "y" ? "bottom" : "right", O = S + u[N], j = S - u[D];
-        S = Ct(O, S, j);
+        const N = f === "y" ? "top" : "left", D = f === "y" ? "bottom" : "right", O = S + u[N], k = S - u[D];
+        S = Ct(O, S, k);
       }
       const C = a.fn({
         ...t,
@@ -559,11 +559,11 @@ const oi = function(e) {
       } = n.floating;
       let S, C;
       c === "top" || c === "bottom" ? (S = c, C = u === (await (i.isRTL == null ? void 0 : i.isRTL(s.floating)) ? "start" : "end") ? "left" : "right") : (C = c, S = u === "end" ? "top" : "bottom");
-      const N = m - l.top - l.bottom, D = g - l.left - l.right, O = je(m - l[S], N), j = je(g - l[C], D), T = !t.middlewareData.shift;
-      let w = O, b = j;
-      if (f ? b = u || T ? je(j, D) : D : w = u || T ? je(O, N) : N, T && !u) {
-        const A = Me(l.left, 0), k = Me(l.right, 0), h = Me(l.top, 0), v = Me(l.bottom, 0);
-        f ? b = g - 2 * (A !== 0 || k !== 0 ? A + k : Me(l.left, l.right)) : w = m - 2 * (h !== 0 || v !== 0 ? h + v : Me(l.top, l.bottom));
+      const N = m - l.top - l.bottom, D = g - l.left - l.right, O = je(m - l[S], N), k = je(g - l[C], D), L = !t.middlewareData.shift;
+      let w = O, b = k;
+      if (f ? b = u || L ? je(k, D) : D : w = u || L ? je(O, N) : N, L && !u) {
+        const A = Me(l.left, 0), j = Me(l.right, 0), h = Me(l.top, 0), v = Me(l.bottom, 0);
+        f ? b = g - 2 * (A !== 0 || j !== 0 ? A + j : Me(l.left, l.right)) : w = m - 2 * (h !== 0 || v !== 0 ? h + v : Me(l.top, l.bottom));
       }
       await r({
         ...t,
@@ -659,8 +659,8 @@ function Fe(e, t, o, n) {
     const C = te(a), N = n && ve(n) ? te(n) : n;
     let D = C.frameElement;
     for (; D && n && N !== C; ) {
-      const O = Ce(D), j = D.getBoundingClientRect(), T = getComputedStyle(D);
-      j.x += (D.clientLeft + parseFloat(T.paddingLeft)) * O.x, j.y += (D.clientTop + parseFloat(T.paddingTop)) * O.y, f *= O.x, g *= O.y, m *= O.x, S *= O.y, f += j.x, g += j.y, D = te(D).frameElement;
+      const O = Ce(D), k = D.getBoundingClientRect(), L = getComputedStyle(D);
+      k.x += (D.clientLeft + parseFloat(L.paddingLeft)) * O.x, k.y += (D.clientTop + parseFloat(L.paddingTop)) * O.y, f *= O.x, g *= O.y, m *= O.x, S *= O.y, f += k.x, g += k.y, D = te(D).frameElement;
     }
   }
   return { width: m, height: S, top: g, right: f + m, bottom: g + S, left: f, x: f, y: g };
@@ -3109,14 +3109,14 @@ function Gt(e, t, o = {}, n, i, s) {
       throw new Error(`🍍: Store "${e}" is built using the setup syntax and does not implement $reset().`);
     } : bn
   );
-  function j() {
+  function k() {
     r.stop(), f = [], g = [], n._s.delete(e);
   }
-  function T(h, v) {
+  function L(h, v) {
     return function() {
       Ee(n);
       const p = Array.from(arguments), x = [], E = [];
-      function L(R) {
+      function T(R) {
         x.push(R);
       }
       function G(R) {
@@ -3126,7 +3126,7 @@ function Gt(e, t, o = {}, n, i, s) {
         args: p,
         name: h,
         store: _,
-        after: L,
+        after: T,
         onError: G
       });
       let $;
@@ -3160,7 +3160,7 @@ function Gt(e, t, o = {}, n, i, s) {
       }, ee({}, l, v)));
       return p;
     },
-    $dispose: j
+    $dispose: k
   }, _ = zn(process.env.NODE_ENV !== "production" || Be ? ee(
     {
       _hmrPayload: w,
@@ -3172,22 +3172,22 @@ function Gt(e, t, o = {}, n, i, s) {
     // setupStore
   ) : b);
   n._s.set(e, _);
-  const k = (n._a && n._a.runWithContext || fs)(() => n._e.run(() => (r = Do()).run(t)));
-  for (const h in k) {
-    const v = k[h];
+  const j = (n._a && n._a.runWithContext || fs)(() => n._e.run(() => (r = Do()).run(t)));
+  for (const h in j) {
+    const v = j[h];
     if (Ne(v) && !jo(v) || Zt(v))
-      process.env.NODE_ENV !== "production" && i ? tt(C.value, h, Nt(k, h)) : s || (S && _s(v) && (Ne(v) ? v.value = S[h] : Yt(v, S[h])), n.state.value[e][h] = v), process.env.NODE_ENV !== "production" && w.state.push(h);
+      process.env.NODE_ENV !== "production" && i ? tt(C.value, h, Nt(j, h)) : s || (S && _s(v) && (Ne(v) ? v.value = S[h] : Yt(v, S[h])), n.state.value[e][h] = v), process.env.NODE_ENV !== "production" && w.state.push(h);
     else if (typeof v == "function") {
-      const p = process.env.NODE_ENV !== "production" && i ? v : T(h, v);
-      k[h] = p, process.env.NODE_ENV !== "production" && (w.actions[h] = v), a.actions[h] = v;
+      const p = process.env.NODE_ENV !== "production" && i ? v : L(h, v);
+      j[h] = p, process.env.NODE_ENV !== "production" && (w.actions[h] = v), a.actions[h] = v;
     } else
       process.env.NODE_ENV !== "production" && jo(v) && (w.getters[h] = s ? (
         // @ts-expect-error
         o.getters[h]
-      ) : v, jt && (k._getters || // @ts-expect-error: same
-      (k._getters = ke([]))).push(h));
+      ) : v, jt && (j._getters || // @ts-expect-error: same
+      (j._getters = ke([]))).push(h));
   }
-  if (ee(_, k), ee(vt(_), k), Object.defineProperty(_, "$state", {
+  if (ee(_, j), ee(vt(_), j), Object.defineProperty(_, "$state", {
     get: () => process.env.NODE_ENV !== "production" && i ? C.value : n.state.value[e],
     set: (h) => {
       if (process.env.NODE_ENV !== "production" && i)
@@ -3210,7 +3210,7 @@ function Gt(e, t, o = {}, n, i, s) {
     });
     for (const v in h._hmrPayload.actions) {
       const p = h[v];
-      tt(_, v, T(v, p));
+      tt(_, v, L(v, p));
     }
     for (const v in h._hmrPayload.getters) {
       const p = h._hmrPayload.getters[v], x = s ? (
@@ -3577,6 +3577,42 @@ function ws(e, t) {
     return i.indexOf(s) - i.indexOf(r);
   }), n;
 }
+function ot(e, t = 300) {
+  let o;
+  return (...n) => {
+    clearTimeout(o), o = setTimeout(() => {
+      e(...n);
+    }, t);
+  };
+}
+function So(e) {
+  return !!(e && typeof e == "object" && !Array.isArray(e));
+}
+async function In(e) {
+  if (navigator.clipboard)
+    await navigator.clipboard.writeText(e);
+  else {
+    const t = document.createElement("textarea");
+    t.value = e, document.body.appendChild(t), t.focus(), t.select();
+    try {
+      document.execCommand("copy");
+    } catch (o) {
+      console.error("unable to copy to clipboard", o);
+    }
+    document.body.removeChild(t);
+  }
+}
+function Ms() {
+  let e = "light";
+  const t = document.documentElement.getAttribute("data-theme");
+  if (t && ["light", "dark"].includes(t))
+    e = t === "light" ? "light" : "dark";
+  else {
+    const o = document.documentElement.getAttribute("data-bs-theme");
+    o && ["light", "dark"].includes(o) ? e = o === "light" ? "light" : "dark" : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches && (e = "dark");
+  }
+  return e;
+}
 const q = vs("editorStore", () => {
   const e = P(void 0), t = P(U.templates), o = P("colors"), n = P(void 0), i = P(Z.html), s = P(!1), r = P(!1);
   function a() {
@@ -3603,7 +3639,21 @@ const q = vs("editorStore", () => {
   function m(N) {
     C();
     const D = q(), O = Jt(N);
-    D.setStylingCategory(O.categories[0]), D.targetStylingVariable(N);
+    if (O.nameSpace[0] === "colors" && ![
+      "brand",
+      "brand-hue",
+      "brand-lightness",
+      "brand-saturation",
+      "light",
+      "dark"
+    ].includes(O.nameSpace[1])) {
+      const k = Ms();
+      let L = N.split("_");
+      L.splice(2, 0, k), N = L.join("_");
+    }
+    D.setStylingCategory(O.categories[0]), setTimeout(() => {
+      D.targetStylingVariable(N);
+    });
   }
   function S(N) {
     n.value = N;
@@ -3619,7 +3669,6 @@ const q = vs("editorStore", () => {
     outputFormat: i,
     outputMinified: s,
     templateDirtyState: r,
-    // initStudio,
     setCurrentCustomizationName: l,
     refreshEditorPanels: a,
     setEditorPanel: c,
@@ -3630,7 +3679,7 @@ const q = vs("editorStore", () => {
     setOutputFormat: f,
     minifyOutput: g
   };
-}), Ms = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIEdlbmVyYXRvcjogU1ZHIFJlcG8gTWl4ZXIgVG9vbHMgLS0+Cjxzdmcgd2lkdGg9IjgwMHB4IiBoZWlnaHQ9IjgwMHB4IiB2aWV3Qm94PSIwIDAgMTI4IDEyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgYXJpYS1oaWRkZW49InRydWUiIHJvbGU9ImltZyIgY2xhc3M9Imljb25pZnkgaWNvbmlmeS0tbm90byIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCI+Cg08cGF0aCBkPSJNOTguOSA3OS44NWMtMS4yNS0yLjI3LjM0LTQuNTggMy4wNi03LjQ0YzQuMzEtNC41NCA5LTE1LjA3IDQuNjQtMjUuNzZjLjAzLS4wNi0uODYtMS44Ni0uODMtMS45MmwtMS43OS0uMDljLS41Ny0uMDgtMjAuMjYtLjEyLTM5Ljk3LS4xMmMtMTkuNzEgMC0zOS4zOS4wNC0zOS45Ny4xMmMwIDAtMi42NSAxLjk1LTIuNjMgMi4wMWMtNC4zNSAxMC42OS4zMyAyMS4yMiA0LjY0IDI1Ljc2YzIuNzEgMi44NiA0LjMgNS4xNyAzLjA2IDcuNDRjLTEuMjEgMi4yMS00LjgxIDIuNTMtNC44MSAyLjUzcy44MyAyLjI2IDIuODMgMy40OGMxLjg1IDEuMTMgNC4xMyAxLjM5IDUuNyAxLjQzYzAgMCA2LjE1IDguNTEgMjIuMjMgOC41MWgxNy45YzE2LjA4IDAgMjIuMjMtOC41MSAyMi4yMy04LjUxYzEuNTctLjA0IDMuODUtLjMgNS43LTEuNDNjMi0xLjIyIDIuODMtMy40OCAyLjgzLTMuNDhzLTMuNjEtLjMyLTQuODItMi41M3oiIGZpbGw9IiNlNjNkMDAiPgoNPC9wYXRoPgoNPHJhZGlhbEdyYWRpZW50IGlkPSJJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTI4IiBjeD0iOTguNzUyIiBjeT0iODMuNjAxIiByPSIyMy40MTkiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLS40OTEyIC0xOS4yODMgMTI0LjY2NSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KDTxzdG9wIG9mZnNldD0iLjY5OSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSI+Cg08L3N0b3A+Cg08L3JhZGlhbEdyYWRpZW50PgoNPHBhdGggZD0iTTYzLjk5IDk1Ljc5di05LjQ0bDI4LjU3LTIuMjZsMi42IDMuMnMtNi4xNSA4LjUxLTIyLjIzIDguNTFsLTguOTQtLjAxeiIgZmlsbD0idXJsKCNJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTI4KSI+Cg08L3BhdGg+Cg08cmFkaWFsR3JhZGllbnQgaWQ9Ikljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MjkiIGN4PSI3Ni41NzMiIGN5PSI3OC42NjgiIHI9IjYuOTIxIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0uOTA1NyAuNDIzOCAuMzE0NCAuNjcxOSAxNDYuMjcgLTYuNjQ0KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgoNPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZjk4YjI1Ij4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iLjg3MiIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTwvcmFkaWFsR3JhZGllbnQ+Cg08cGF0aCBkPSJNOTUuMSA4My4xNmMtNC4yOC02LjUgNS4yMS04LjkzIDUuMjEtOC45M2wuMDEuMDFjLTEuNjUgMi4wNS0yLjQgMy44NC0xLjQzIDUuNjFjMS4yMSAyLjIxIDQuODEgMi41MyA0LjgxIDIuNTNzLTQuOTEgNC4zNi04LjYuNzh6IiBmaWxsPSJ1cmwoI0ljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MjkpIj4KDTwvcGF0aD4KDTxyYWRpYWxHcmFkaWVudCBpZD0iSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzMCIgY3g9IjkwLjkzIiBjeT0iNTkuMjc5IiByPSIzMC4zOTkiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoLS4wNzQ2IC0uOTk3MiAtLjgzMTEgLjA2MjIgMTQzLjM0MyAxNDYuMjY5KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgoNPHN0b3Agb2Zmc2V0PSIuNjk5IiBzdG9wLWNvbG9yPSIjZjk4YjI1IiBzdG9wLW9wYWNpdHk9IjAiPgoNPC9zdG9wPgoNPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjk4YjI1Ij4KDTwvc3RvcD4KDTwvcmFkaWFsR3JhZGllbnQ+Cg08cGF0aCBkPSJNMTA2LjYyIDQ2LjY1YzQuMjUgMTAuMzUtLjIyIDIxLjAxLTQuNDEgMjUuNTFjLS41OC42Mi0zLjAxIDMuMDEtMy41NyA0LjkyYzAgMC05LjU0LTEzLjMxLTEyLjM5LTIxLjEzYy0uNTgtMS41OC0xLjEtMy4yLTEuMTctNC44OGMtLjA1LTEuMjYuMTQtMi43Ni44Ny0zLjgyYy44OS0xLjMxIDIwLjE2LTEuNyAyMC4xNi0xLjdsLjUxIDEuMXoiIGZpbGw9InVybCgjSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzMCkiPgoNPC9wYXRoPgoNPHJhZGlhbEdyYWRpZW50IGlkPSJJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTMxIiBjeD0iNDEuNTM0IiBjeT0iNjIuNjQ1IiByPSIzMC4zOTkiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoLjA3NDYgLS45OTcyIC44MzExIC4wNjIyIC0xMy42MyAxMDAuMTY2KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgoNPHN0b3Agb2Zmc2V0PSIuNjk5IiBzdG9wLWNvbG9yPSIjZjk4YjI1IiBzdG9wLW9wYWNpdHk9IjAiPgoNPC9zdG9wPgoNPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjk4YjI1Ij4KDTwvc3RvcD4KDTwvcmFkaWFsR3JhZGllbnQ+Cg08cGF0aCBkPSJNMjEuNCA0Ni42NWMtNC4yNCAxMC4zNS4yMyAyMS4wMSA0LjQxIDI1LjVjLjU4LjYyIDMuMDEgMy4wMSAzLjU3IDQuOTJjMCAwIDkuNTQtMTMuMzEgMTIuMzktMjEuMTNjLjU4LTEuNTggMS4xLTMuMiAxLjE3LTQuODhjLjA1LTEuMjYtLjE0LTIuNzYtLjg3LTMuODJjLS44OS0xLjMxLTEuOTMtLjk2LTMuNDQtLjk2Yy0yLjg4IDAtMTUuNDktLjc0LTE2LjQ3LS43NGMuMDEuMDEtLjc2IDEuMTEtLjc2IDEuMTF6IiBmaWxsPSJ1cmwoI0ljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MzEpIj4KDTwvcGF0aD4KDTxyYWRpYWxHcmFkaWVudCBpZD0iSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzMiIgY3g9IjQ4Ljg4NSIgY3k9IjgzLjUzOCIgcj0iMjMuNDE5IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAtLjQ5MTIgOTcuNzcgMTI0LjU3MikiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KDTxzdG9wIG9mZnNldD0iLjY5OSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSI+Cg08L3N0b3A+Cg08L3JhZGlhbEdyYWRpZW50PgoNPHBhdGggZD0iTTY0LjAzIDk1Ljc5di05LjQ0bC0yOC41Ny0yLjI2bC0yLjYgMy4yczYuMTUgOC41MSAyMi4yMyA4LjUxbDguOTQtLjAxeiIgZmlsbD0idXJsKCNJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTMyKSI+Cg08L3BhdGg+Cg08cmFkaWFsR3JhZGllbnQgaWQ9Ikljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MzMiIGN4PSIyNi4zNzQiIGN5PSI3OC42NjgiIHI9IjYuOTIxIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC45MDU3IC40MjM4IC0uMzE0NCAuNjcxOSAyNy4yMiAxNC42MzIpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+Cg08c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmOThiMjUiPgoNPC9zdG9wPgoNPHN0b3Agb2Zmc2V0PSIuOTQ0IiBzdG9wLWNvbG9yPSIjZjk4YjI1IiBzdG9wLW9wYWNpdHk9IjAiPgoNPC9zdG9wPgoNPC9yYWRpYWxHcmFkaWVudD4KDTxwYXRoIGQ9Ik0zMi45MyA4My4xNmM0LjI4LTYuNS01LjIxLTguOTMtNS4yMS04LjkzbC0uMDEuMDFjMS42NSAyLjA1IDIuNCAzLjg0IDEuNDMgNS42MWMtMS4yMSAyLjIxLTQuODEgMi41My00LjgxIDIuNTNzNC45IDQuMzYgOC42Ljc4eiIgZmlsbD0idXJsKCNJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTMzKSI+Cg08L3BhdGg+Cg08Zz4KDTxsaW5lYXJHcmFkaWVudCBpZD0iSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzNCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSI2NCIgeTE9Ijk0LjU2NSIgeDI9IjY0IiB5Mj0iMTIyLjExIj4KDTxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2Y3OGMxZiI+Cg08L3N0b3A+Cg08c3RvcCBvZmZzZXQ9Ii40OTQiIHN0b3AtY29sb3I9IiNmMzdmMjEiPgoNPC9zdG9wPgoNPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZWQ2ZDIzIj4KDTwvc3RvcD4KDTwvbGluZWFyR3JhZGllbnQ+Cg08cGF0aCBkPSJNNjQuMTMgOTQuNjhINjRjLTI1LjQ5LjAzLTUxLjEzIDcuNS01MS4xMyAyNS4yOFYxMjRoMTAyLjI3di00LjA0Yy0uMDEtMTYuNzYtMjUuNDEtMjUuMjgtNTEuMDEtMjUuMjh6IiBmaWxsPSJ1cmwoI0ljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MzQpIj4KDTwvcGF0aD4KDTwvZz4KDTxnPgoNPHBhdGggZD0iTTU0LjkyIDkwLjA4djkuOThjMCA0LjUxIDMuNyA4LjE3IDguMjYgOC4xN2gxLjY1YzQuNTYgMCA4LjI2LTMuNjYgOC4yNi04LjE3di05Ljk4SDU0LjkyeiIgZmlsbD0iI2VkYzM5MSI+Cg08L3BhdGg+Cg08L2c+Cg08Zz4KDTxwYXRoIGQ9Ik05MS4zMyA1MC40M0gzNi42N2MtNS44OSAwLTEwLjcxIDUuMTQtMTAuNzEgMTEuNDFzNC44MiAxMS40MSAxMC43MSAxMS40MWg1NC42NWM1Ljg5IDAgMTAuNzEtNS4xNCAxMC43MS0xMS40MXMtNC44MS0xMS40MS0xMC43LTExLjQxeiIgZmlsbD0iI2VkYzM5MSI+Cg08L3BhdGg+Cg08L2c+Cg08Zz4KDTxwYXRoIGQ9Ik02NCAxMS4wN2MtMTcuNCAwLTMzLjUyIDE4LjYxLTMzLjUyIDQ1LjM5YzAgMjYuNjQgMTYuNjEgMzkuODEgMzMuNTIgMzkuODFTOTcuNTIgODMuMSA5Ny41MiA1Ni40NmMwLTI2Ljc4LTE2LjEyLTQ1LjM5LTMzLjUyLTQ1LjM5eiIgZmlsbD0iI2Y5ZGRiZCI+Cg08L3BhdGg+Cg08L2c+Cg08ZyBmaWxsPSIjMzEyZDJkIj4KDTxlbGxpcHNlIGN4PSI0Ny41NiIgY3k9IjU4LjgxIiByeD0iNC45MyIgcnk9IjUuMSI+Cg08L2VsbGlwc2U+Cg08ZWxsaXBzZSBjeD0iODAuNDQiIGN5PSI1OC44MSIgcng9IjQuOTMiIHJ5PSI1LjEiPgoNPC9lbGxpcHNlPgoNPC9nPgoNPGcgZmlsbD0iIzQ1NDE0MCI+Cg08cGF0aCBkPSJNNTQuOTggNDkuODJjLS45My0xLjIzLTMuMDctMy4wMS03LjIzLTMuMDFzLTYuMzEgMS43OS03LjIzIDMuMDFjLS40MS41NC0uMzEgMS4xNy0uMDIgMS41NWMuMjYuMzUgMS4wNC42OCAxLjkuMzljLjg2LS4yOSAyLjU0LTEuMTYgNS4zNS0xLjE4YzIuODEuMDIgNC40OS44OSA1LjM1IDEuMThjLjg2LjI5IDEuNjQtLjAzIDEuOS0uMzljLjI5LS4zOC4zOS0xLjAxLS4wMi0xLjU1eiI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNODcuNDggNDkuODJjLS45My0xLjIzLTMuMDctMy4wMS03LjIzLTMuMDFzLTYuMzEgMS43OS03LjIzIDMuMDFjLS40MS41NC0uMzEgMS4xNy0uMDIgMS41NWMuMjYuMzUgMS4wNC42OCAxLjkuMzljLjg2LS4yOSAyLjU0LTEuMTYgNS4zNS0xLjE4YzIuODEuMDIgNC40OS44OSA1LjM1IDEuMThjLjg2LjI5IDEuNjQtLjAzIDEuOS0uMzljLjI5LS4zOC4zOS0xLjAxLS4wMi0xLjU1eiI+Cg08L3BhdGg+Cg08L2c+Cg08cGF0aCBkPSJNNjcuODYgNjguMDZjLS4xMS0uMDQtLjIxLS4wNy0uMzItLjA4aC03LjA3Yy0uMTEuMDEtLjIyLjA0LS4zMi4wOGMtLjY0LjI2LS45OS45Mi0uNjkgMS42M2MuMy43MSAxLjcxIDIuNjkgNC41NSAyLjY5czQuMjUtMS45OSA0LjU1LTIuNjljLjI5LS43MS0uMDYtMS4zNy0uNy0xLjYzeiIgZmlsbD0iI2RiYTY4OSI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNNzIuNDIgNzYuMTRjLTMuMTkgMS44OS0xMy42MyAxLjg5LTE2LjgxIDBjLTEuODMtMS4wOS0zLjcuNTgtMi45NCAyLjI0Yy43NSAxLjYzIDYuNDUgNS40MiAxMS4zNyA1LjQyczEwLjU1LTMuNzkgMTEuMy01LjQyYy43NS0xLjY2LTEuMDktMy4zMy0yLjkyLTIuMjR6IiBmaWxsPSIjNDQ0Ij4KDTwvcGF0aD4KDTxnPgoNPHBhdGggZD0iTTEwNC4wNyAyNS4xMWMtMi40NC0zLjctNy45MS04LjY0LTEyLjgyLTguOTdjLS43OS00LjcyLTUuODQtOC43Mi0xMC43My0xMC4yN2MtMTMuMjMtNC4xOS0yMS44NC41MS0yNi40NiAzLjA0Yy0uOTYuNTMtNy4xNyAzLjk3LTExLjUxIDEuNWMtMi43Mi0xLjU1LTIuNjctNS43NC0yLjY3LTUuNzRzLTguNTMgMy4yNS01LjYxIDEyLjI5Yy0yLjkzLjEyLTYuNzcgMS4zNi04LjggNS40N2MtMi40MiA0LjktMS41NiA4Ljk5LS44NiAxMC45NWMtMi41MiAyLjE0LTUuNjkgNi42OS0zLjUyIDEyLjZjMS42NCA0LjQ1IDguMTcgNi41IDguMTcgNi41Yy0uNDYgOC4wMSAxLjAzIDEyLjk0IDEuODIgMTQuOTRjLjE0LjM1LjYzLjMyLjcyLS4wNGMuOTktMy45NiA0LjM3LTE3LjggNC4wMy0yMC4yMWMwIDAgMTEuMzUtMi4yNSAyMi4xNy0xMC4yMmMyLjItMS42MiA0LjU5LTMgNy4xMy00LjAyYzEzLjU5LTUuNDEgMTYuNDQgMy44MiAxNi40NCAzLjgyczkuNDItMS44MSAxMi4yNiAxMS4yN2MxLjA3IDQuOSAxLjggMTIuNzUgMi40IDE4LjI0Yy4wNC4zOS41Ny40Ny43My4xMWMuOTUtMi4xOCAyLjg1LTYuNSAzLjMtMTAuOTFjLjE2LTEuNTUgNC4zNC0zLjYgNi4xNC0xMC4yNmMyLjM5LTguODgtLjU2LTE3LjQyLTIuMzMtMjAuMDl6IiBmaWxsPSIjZTYzZDAwIj4KDTwvcGF0aD4KDTxyYWRpYWxHcmFkaWVudCBpZD0iSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzNSIgY3g9Ijg0LjYyNSIgY3k9IjQxLjQ3NCIgcj0iMzUuNjMzIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC4zMDc2IC45NTE1IC0uNzA2IC4yMjgyIDg3Ljg3MyAtNDguNTEzKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgoNPHN0b3Agb2Zmc2V0PSIuNjk5IiBzdG9wLWNvbG9yPSIjZjk4YjI1IiBzdG9wLW9wYWNpdHk9IjAiPgoNPC9zdG9wPgoNPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjk4YjI1Ij4KDTwvc3RvcD4KDTwvcmFkaWFsR3JhZGllbnQ+Cg08cGF0aCBkPSJNMTAwLjIyIDU1LjVjLjE2LTEuNTUgNC4zNC0zLjYgNi4xNC0xMC4yNmMuMTktLjcxLjM1LTEuNDMuNS0yLjE1YzEuNDYtOC4wOS0xLjE2LTE1LjUyLTIuNzktMTcuOThjLTIuMjYtMy40Mi03LjEtNy44OS0xMS43LTguODFjLS40LS4wNS0uNzktLjEtMS4xNi0uMTJjMCAwIC4zMyAyLjE1LS41NCAzLjg2Yy0xLjEyIDIuMjItMy40MSAyLjc1LTMuNDEgMi43NWMxMS45OCAxMS45OCAxMS4xMiAyMiAxMi45NiAzMi43MXoiIGZpbGw9InVybCgjSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzNSkiPgoNPC9wYXRoPgoNPHJhZGlhbEdyYWRpZW50IGlkPSJJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTM2IiBjeD0iNDcuMjgiIGN5PSI0LjIiIHI9IjkuMzQzIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC44ODEzIC40NzI2IC0uNTYwMyAxLjA0NSA3Ljk2NiAtMjIuNTMyKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgoNPHN0b3Agb2Zmc2V0PSIuMzkzIiBzdG9wLWNvbG9yPSIjZjk4YjI1Ij4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTwvcmFkaWFsR3JhZGllbnQ+Cg08cGF0aCBkPSJNNTYuOTUgNy4zOWMtMS4wOS41My0yLjA2IDEuMDYtMi44OSAxLjUxYy0uOTYuNTMtNy4xNyAzLjk3LTExLjUxIDEuNWMtMi42Ny0xLjUyLTIuNjctNS41OC0yLjY3LTUuNzJjLTEuMjMgMS41Ny00Ljk1IDEyLjc4IDUuOTMgMTMuNTNjNC42OS4zMiA3LjU4LTMuNzcgOS4zLTcuMjNjLjYxLTEuMjcgMS41OC0zLjEgMS44NC0zLjU5eiIgZmlsbD0idXJsKCNJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTM2KSI+Cg08L3BhdGg+Cg08cmFkaWFsR3JhZGllbnQgaWQ9Ikljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MzciIGN4PSIxNjAuMzEyIiBjeT0iNjIuNTM4IiByPSIzNS40MSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgtLjkzNzggLS4zOTQ0IC4yMTgyIC0uNTI4NSAyMDYuNzk1IDExOS41OCkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KDTxzdG9wIG9mZnNldD0iLjcwOSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSI+Cg08L3N0b3A+Cg08L3JhZGlhbEdyYWRpZW50PgoNPHBhdGggZD0iTTc5LjE2IDUuNDdjNy4zMiAxLjk4IDEwLjg5IDUuNzEgMTIuMDggMTAuNjhjLjM1IDEuNDYuNzcgMTUuMDgtMjUuMjMtLjRjLTkuNjctNS43Ni03LjAzLTkuMzYtNS45LTkuNzdjNC40Mi0xLjYgMTAuODUtMi43MyAxOS4wNS0uNTF6IiBmaWxsPSJ1cmwoI0ljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MzcpIj4KDTwvcGF0aD4KDTxyYWRpYWxHcmFkaWVudCBpZD0iSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzOCIgY3g9IjQ2LjM2OSIgY3k9IjE1Ljk2MiIgcj0iMTMuMDk5IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIDEuMjIzMyAwIC0zLjU2NCkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KDTxzdG9wIG9mZnNldD0iLjc4NiIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSI+Cg08L3N0b3A+Cg08L3JhZGlhbEdyYWRpZW50PgoNPHBhdGggZD0iTTM5Ljg0IDQuNjhjLS4wMS4wMS0uMDMuMDEtLjA2LjAyaC0uMDFjLS45My4zOS04LjI0IDMuNzgtNS41MSAxMi4yNmw3Ljc4IDEuMjVjLTYuODktNi45OC0yLjE3LTEzLjU1LTIuMTctMTMuNTVzLS4wMi4wMS0uMDMuMDJ6IiBmaWxsPSJ1cmwoI0ljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MzgpIj4KDTwvcGF0aD4KDTxyYWRpYWxHcmFkaWVudCBpZD0iSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzOSIgY3g9IjM4LjE1MyIgY3k9IjI1LjQ0MiIgcj0iMTYuMDgzIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0uOTY1NyAtLjI1OTggLjI0MzIgLS45MDM3IDY4LjgxIDU4LjM0NykiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KDTxzdG9wIG9mZnNldD0iLjUwMyIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSI+Cg08L3N0b3A+Cg08L3JhZGlhbEdyYWRpZW50PgoNPHBhdGggZD0iTTM5LjA3IDE3LjczbC00LjgxLS43N2MtLjE5IDAtLjgzLjA2LTEuMTguMTFjLTIuNzEuMzgtNS45IDEuNzgtNy42MyA1LjM2Yy0xLjg2IDMuODYtMS44MSA3LjE3LTEuMyA5LjM4Yy4xNS43NC40NSAxLjU4LjQ1IDEuNThzMi4zOC0yLjI2IDguMDUtMi40MWw2LjQyLTEzLjI1eiIgZmlsbD0idXJsKCNJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTM5KSI+Cg08L3BhdGg+Cg08cmFkaWFsR3JhZGllbnQgaWQ9Ikljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5NDAiIGN4PSIzNi4zOSIgY3k9IjQyLjkxNSIgcj0iMTYuODg2IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC45OTA3IC4xMzYzIC0uMTM1MyAuOTgzNyA2LjE0OCAtNC4yNTkpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+Cg08c3RvcCBvZmZzZXQ9Ii42OTkiIHN0b3AtY29sb3I9IiNmOThiMjUiIHN0b3Atb3BhY2l0eT0iMCI+Cg08L3N0b3A+Cg08c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmOThiMjUiPgoNPC9zdG9wPgoNPC9yYWRpYWxHcmFkaWVudD4KDTxwYXRoIGQ9Ik0yNC4zNyAzMy41OGMtMi4zNyAyLjEtNS41NiA2Ljc5LTMuMjEgMTIuNjFjMS43OCA0LjM5IDguMDkgNi4yOSA4LjA5IDYuMjljMCAuMDIgMS4yNi4zOSAxLjkxLjM5bDEuNDgtMjEuOWMtMy4wMyAwLTUuOTQuOTEtNy44MiAyLjIyYy4wMy4wNC0uNDYuMzYtLjQ1LjM5eiIgZmlsbD0idXJsKCNJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTQwKSI+Cg08L3BhdGg+Cg08L2c+Cg08L3N2Zz4=", So = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIEdlbmVyYXRvcjogU1ZHIFJlcG8gTWl4ZXIgVG9vbHMgLS0+Cjxzdmcgd2lkdGg9IjgwMHB4IiBoZWlnaHQ9IjgwMHB4IiB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIGFyaWEtaGlkZGVuPSJ0cnVlIiByb2xlPSJpbWciIGNsYXNzPSJpY29uaWZ5IGljb25pZnktLWVtb2ppb25lIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0Ij4KDTxwYXRoIGQ9Ik01Ny42IDEzLjdjLS43LTEtMS42LTEuNy0yLjctMi4yYy0zLjQtMS43LTExLjYtMS4zLTEyLjMtNS43Yy0uOS01LjctNS45LjEtNi44LjFjLTEuMSAwLTEuNi0zLjktMy43LTMuOWMtMi4yIDAtMi43IDMuOS0zLjcgMy45Yy0uOSAwLTUuOS01LjgtNi44LS4xYy0uNyA0LjMtOSA0LTEyLjMgNS43Yy0xIC41LTIgMS4yLTIuNyAyLjJjLS41LjguNiAxLjYgMS4yLjljMS42LTIgNC44LTIuNCA3LjEtMi44YzEuOS0uNCA0LS42IDUuOS0xLjRjMi42LTEgMi41LTQuOSAzLjMtNC45Yy42IDAgMi43IDMgNC41IDNjMS42IDAgMi42LTMuNyAzLjUtMy43Yy45IDAgMS45IDMuNyAzLjUgMy43YzEuOSAwIDQtMyA0LjYtM2MuOCAwIC43IDMuOSAzLjMgNC45YzEuOC44IDMuOSAxIDUuOSAxLjRjMi4zLjUgNS42LjggNy4xIDIuOGMuNS43IDEuNi0uMiAxLjEtLjkiIGZpbGw9IiMwMGI5ZjEiPgoNPC9wYXRoPgoNPHBhdGggZD0iTTUzIDU3YzAgMi44LTIuMiA1LTUgNUgxNmMtMi44IDAtNS0yLjItNS01VjM2aDQydjIxeiIgZmlsbD0iIzg5OTY3YSI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNMzIgMTJjLTE1LjUgMC0yMSA4LjUtMjEgMjR2MjFoNDJWMzZjMC0xNS41LTUuNS0yNC0yMS0yNCIgZmlsbD0iI2I2YzRhNyI+Cg08L3BhdGg+Cg08ZyBmaWxsPSIjODk5NjdhIj4KDTxwYXRoIGQ9Ik0xMSA1NWMtMS4xIDAtMi0xLjItMi0yLjZ2LTYuOGMwLTEuNC45LTIuNiAyLTIuNnYxMiI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNNTMgNDNjMS4xIDAgMiAxLjIgMiAyLjZ2Ni44YzAgMS40LS45IDIuNi0yIDIuNlY0MyI+Cg08L3BhdGg+Cg08L2c+Cg08ZyBmaWxsPSIjM2U0MzQ3Ij4KDTxwYXRoIGQ9Ik03IDIwSDV2MzBoNHYtMkg3eiI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNNTcgMjB2MjhoLTJ2Mmg0VjIweiI+Cg08L3BhdGg+Cg08L2c+Cg08Y2lyY2xlIGN4PSI1OCIgY3k9IjIwIiByPSI0IiBmaWxsPSIjMDBiOWYxIj4KDTwvY2lyY2xlPgoNPGNpcmNsZSBjeD0iNiIgY3k9IjIwIiByPSI0IiBmaWxsPSIjZmY1MjYzIj4KDTwvY2lyY2xlPgoNPHBhdGggZD0iTTIxLjUgMzkuNWMtNC40IDAtOC0zLjYtOC04czMuNi04IDgtOHM4IDMuNiA4IDhzLTMuNiA4LTggOCIgZmlsbD0iI2VmZmZkOSI+Cg08L3BhdGg+Cg08Y2lyY2xlIGN4PSIyMS41IiBjeT0iMzEuNSIgcj0iNiIgZmlsbD0iIzU0NWI2MSI+Cg08L2NpcmNsZT4KDTxjaXJjbGUgY3g9IjIxLjUiIGN5PSIzMS41IiByPSIyLjMiIGZpbGw9IiNmZjUyNjMiPgoNPC9jaXJjbGU+Cg08cGF0aCBkPSJNNDIuNSAzOS41Yy00LjQgMC04LTMuNi04LThzMy42LTggOC04czggMy42IDggOHMtMy42IDgtOCA4IiBmaWxsPSIjZWZmZmQ5Ij4KDTwvcGF0aD4KDTxwYXRoIGQ9Ik00Mi41IDM3LjVjLTMuMyAwLTYtMi43LTYtNnMyLjctNiA2LTZzNiAyLjcgNiA2cy0yLjcgNi02IDYiIGZpbGw9IiM1NDViNjEiPgoNPC9wYXRoPgoNPGNpcmNsZSBjeD0iNDIuNSIgY3k9IjMxLjUiIHI9IjIuMyIgZmlsbD0iI2ZmNTI2MyI+Cg08L2NpcmNsZT4KDTxwYXRoIGQ9Ik0xOS44IDU0LjFjLTcuNCAwLTcuNC0xMyAwLTEzaDI0LjVjNy40IDAgNy40IDEzIDAgMTNIMTkuOCIgZmlsbD0iI2VmZmZkOSI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNMjAuNSA1Mi42Yy02IDAtNi0xMCAwLTEwaDIzYzYgMCA2IDEwIDAgMTBoLTIzIiBmaWxsPSIjODk5NjdhIj4KDTwvcGF0aD4KDTxnIG9wYWNpdHk9Ii43IiBmaWxsPSIjM2U0MzQ3Ij4KDTxwYXRoIGQ9Ik0yMS4yIDUwLjdjMCAxLjItMiAxLjItMiAwdi02LjFjMC0xLjIgMi0xLjIgMiAwdjYuMSI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNMjUuOSA1MC43YzAgMS4yLTIgMS4yLTIgMHYtNi4xYzAtMS4yIDItMS4yIDIgMHY2LjEiPgoNPC9wYXRoPgoNPHBhdGggZD0iTTMwLjYgNTAuN2MwIDEuMi0yIDEuMi0yIDB2LTYuMWMwLTEuMiAyLTEuMiAyIDB2Ni4xIj4KDTwvcGF0aD4KDTxwYXRoIGQ9Ik0zNS40IDUwLjdjMCAxLjItMiAxLjItMiAwdi02LjFjMC0xLjIgMi0xLjIgMiAwdjYuMSI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNNDAuMSA1MC43YzAgMS4yLTIgMS4yLTIgMHYtNi4xYzAtMS4yIDItMS4yIDIgMHY2LjEiPgoNPC9wYXRoPgoNPHBhdGggZD0iTTQ0LjggNTAuN2MwIDEuMi0yIDEuMi0yIDB2LTYuMWMwLTEuMiAyLTEuMiAyIDB2Ni4xIj4KDTwvcGF0aD4KDTwvZz4KDTxjaXJjbGUgY3g9IjMyIiBjeT0iMzciIHI9IjIiIGZpbGw9IiNmNWY1ZjUiPgoNPC9jaXJjbGU+Cg08cGF0aCBmaWxsPSIjNTQ1YjYxIiBkPSJNMzAuMzE2IDM1Ljg2MmwuNTY2LS41NjVsMi44MjggMi44MjhsLS41NjUuNTY2eiI+Cg08L3BhdGg+Cg08L3N2Zz4=", ae = "https://demo-bot.tock.ai/io/tock/tockbot/web", Is = [
+}), Is = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIEdlbmVyYXRvcjogU1ZHIFJlcG8gTWl4ZXIgVG9vbHMgLS0+Cjxzdmcgd2lkdGg9IjgwMHB4IiBoZWlnaHQ9IjgwMHB4IiB2aWV3Qm94PSIwIDAgMTI4IDEyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgYXJpYS1oaWRkZW49InRydWUiIHJvbGU9ImltZyIgY2xhc3M9Imljb25pZnkgaWNvbmlmeS0tbm90byIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCI+Cg08cGF0aCBkPSJNOTguOSA3OS44NWMtMS4yNS0yLjI3LjM0LTQuNTggMy4wNi03LjQ0YzQuMzEtNC41NCA5LTE1LjA3IDQuNjQtMjUuNzZjLjAzLS4wNi0uODYtMS44Ni0uODMtMS45MmwtMS43OS0uMDljLS41Ny0uMDgtMjAuMjYtLjEyLTM5Ljk3LS4xMmMtMTkuNzEgMC0zOS4zOS4wNC0zOS45Ny4xMmMwIDAtMi42NSAxLjk1LTIuNjMgMi4wMWMtNC4zNSAxMC42OS4zMyAyMS4yMiA0LjY0IDI1Ljc2YzIuNzEgMi44NiA0LjMgNS4xNyAzLjA2IDcuNDRjLTEuMjEgMi4yMS00LjgxIDIuNTMtNC44MSAyLjUzcy44MyAyLjI2IDIuODMgMy40OGMxLjg1IDEuMTMgNC4xMyAxLjM5IDUuNyAxLjQzYzAgMCA2LjE1IDguNTEgMjIuMjMgOC41MWgxNy45YzE2LjA4IDAgMjIuMjMtOC41MSAyMi4yMy04LjUxYzEuNTctLjA0IDMuODUtLjMgNS43LTEuNDNjMi0xLjIyIDIuODMtMy40OCAyLjgzLTMuNDhzLTMuNjEtLjMyLTQuODItMi41M3oiIGZpbGw9IiNlNjNkMDAiPgoNPC9wYXRoPgoNPHJhZGlhbEdyYWRpZW50IGlkPSJJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTI4IiBjeD0iOTguNzUyIiBjeT0iODMuNjAxIiByPSIyMy40MTkiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLS40OTEyIC0xOS4yODMgMTI0LjY2NSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KDTxzdG9wIG9mZnNldD0iLjY5OSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSI+Cg08L3N0b3A+Cg08L3JhZGlhbEdyYWRpZW50PgoNPHBhdGggZD0iTTYzLjk5IDk1Ljc5di05LjQ0bDI4LjU3LTIuMjZsMi42IDMuMnMtNi4xNSA4LjUxLTIyLjIzIDguNTFsLTguOTQtLjAxeiIgZmlsbD0idXJsKCNJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTI4KSI+Cg08L3BhdGg+Cg08cmFkaWFsR3JhZGllbnQgaWQ9Ikljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MjkiIGN4PSI3Ni41NzMiIGN5PSI3OC42NjgiIHI9IjYuOTIxIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0uOTA1NyAuNDIzOCAuMzE0NCAuNjcxOSAxNDYuMjcgLTYuNjQ0KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgoNPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZjk4YjI1Ij4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iLjg3MiIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTwvcmFkaWFsR3JhZGllbnQ+Cg08cGF0aCBkPSJNOTUuMSA4My4xNmMtNC4yOC02LjUgNS4yMS04LjkzIDUuMjEtOC45M2wuMDEuMDFjLTEuNjUgMi4wNS0yLjQgMy44NC0xLjQzIDUuNjFjMS4yMSAyLjIxIDQuODEgMi41MyA0LjgxIDIuNTNzLTQuOTEgNC4zNi04LjYuNzh6IiBmaWxsPSJ1cmwoI0ljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MjkpIj4KDTwvcGF0aD4KDTxyYWRpYWxHcmFkaWVudCBpZD0iSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzMCIgY3g9IjkwLjkzIiBjeT0iNTkuMjc5IiByPSIzMC4zOTkiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoLS4wNzQ2IC0uOTk3MiAtLjgzMTEgLjA2MjIgMTQzLjM0MyAxNDYuMjY5KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgoNPHN0b3Agb2Zmc2V0PSIuNjk5IiBzdG9wLWNvbG9yPSIjZjk4YjI1IiBzdG9wLW9wYWNpdHk9IjAiPgoNPC9zdG9wPgoNPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjk4YjI1Ij4KDTwvc3RvcD4KDTwvcmFkaWFsR3JhZGllbnQ+Cg08cGF0aCBkPSJNMTA2LjYyIDQ2LjY1YzQuMjUgMTAuMzUtLjIyIDIxLjAxLTQuNDEgMjUuNTFjLS41OC42Mi0zLjAxIDMuMDEtMy41NyA0LjkyYzAgMC05LjU0LTEzLjMxLTEyLjM5LTIxLjEzYy0uNTgtMS41OC0xLjEtMy4yLTEuMTctNC44OGMtLjA1LTEuMjYuMTQtMi43Ni44Ny0zLjgyYy44OS0xLjMxIDIwLjE2LTEuNyAyMC4xNi0xLjdsLjUxIDEuMXoiIGZpbGw9InVybCgjSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzMCkiPgoNPC9wYXRoPgoNPHJhZGlhbEdyYWRpZW50IGlkPSJJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTMxIiBjeD0iNDEuNTM0IiBjeT0iNjIuNjQ1IiByPSIzMC4zOTkiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoLjA3NDYgLS45OTcyIC44MzExIC4wNjIyIC0xMy42MyAxMDAuMTY2KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgoNPHN0b3Agb2Zmc2V0PSIuNjk5IiBzdG9wLWNvbG9yPSIjZjk4YjI1IiBzdG9wLW9wYWNpdHk9IjAiPgoNPC9zdG9wPgoNPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjk4YjI1Ij4KDTwvc3RvcD4KDTwvcmFkaWFsR3JhZGllbnQ+Cg08cGF0aCBkPSJNMjEuNCA0Ni42NWMtNC4yNCAxMC4zNS4yMyAyMS4wMSA0LjQxIDI1LjVjLjU4LjYyIDMuMDEgMy4wMSAzLjU3IDQuOTJjMCAwIDkuNTQtMTMuMzEgMTIuMzktMjEuMTNjLjU4LTEuNTggMS4xLTMuMiAxLjE3LTQuODhjLjA1LTEuMjYtLjE0LTIuNzYtLjg3LTMuODJjLS44OS0xLjMxLTEuOTMtLjk2LTMuNDQtLjk2Yy0yLjg4IDAtMTUuNDktLjc0LTE2LjQ3LS43NGMuMDEuMDEtLjc2IDEuMTEtLjc2IDEuMTF6IiBmaWxsPSJ1cmwoI0ljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MzEpIj4KDTwvcGF0aD4KDTxyYWRpYWxHcmFkaWVudCBpZD0iSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzMiIgY3g9IjQ4Ljg4NSIgY3k9IjgzLjUzOCIgcj0iMjMuNDE5IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAtLjQ5MTIgOTcuNzcgMTI0LjU3MikiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KDTxzdG9wIG9mZnNldD0iLjY5OSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSI+Cg08L3N0b3A+Cg08L3JhZGlhbEdyYWRpZW50PgoNPHBhdGggZD0iTTY0LjAzIDk1Ljc5di05LjQ0bC0yOC41Ny0yLjI2bC0yLjYgMy4yczYuMTUgOC41MSAyMi4yMyA4LjUxbDguOTQtLjAxeiIgZmlsbD0idXJsKCNJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTMyKSI+Cg08L3BhdGg+Cg08cmFkaWFsR3JhZGllbnQgaWQ9Ikljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MzMiIGN4PSIyNi4zNzQiIGN5PSI3OC42NjgiIHI9IjYuOTIxIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC45MDU3IC40MjM4IC0uMzE0NCAuNjcxOSAyNy4yMiAxNC42MzIpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+Cg08c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmOThiMjUiPgoNPC9zdG9wPgoNPHN0b3Agb2Zmc2V0PSIuOTQ0IiBzdG9wLWNvbG9yPSIjZjk4YjI1IiBzdG9wLW9wYWNpdHk9IjAiPgoNPC9zdG9wPgoNPC9yYWRpYWxHcmFkaWVudD4KDTxwYXRoIGQ9Ik0zMi45MyA4My4xNmM0LjI4LTYuNS01LjIxLTguOTMtNS4yMS04LjkzbC0uMDEuMDFjMS42NSAyLjA1IDIuNCAzLjg0IDEuNDMgNS42MWMtMS4yMSAyLjIxLTQuODEgMi41My00LjgxIDIuNTNzNC45IDQuMzYgOC42Ljc4eiIgZmlsbD0idXJsKCNJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTMzKSI+Cg08L3BhdGg+Cg08Zz4KDTxsaW5lYXJHcmFkaWVudCBpZD0iSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzNCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSI2NCIgeTE9Ijk0LjU2NSIgeDI9IjY0IiB5Mj0iMTIyLjExIj4KDTxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2Y3OGMxZiI+Cg08L3N0b3A+Cg08c3RvcCBvZmZzZXQ9Ii40OTQiIHN0b3AtY29sb3I9IiNmMzdmMjEiPgoNPC9zdG9wPgoNPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZWQ2ZDIzIj4KDTwvc3RvcD4KDTwvbGluZWFyR3JhZGllbnQ+Cg08cGF0aCBkPSJNNjQuMTMgOTQuNjhINjRjLTI1LjQ5LjAzLTUxLjEzIDcuNS01MS4xMyAyNS4yOFYxMjRoMTAyLjI3di00LjA0Yy0uMDEtMTYuNzYtMjUuNDEtMjUuMjgtNTEuMDEtMjUuMjh6IiBmaWxsPSJ1cmwoI0ljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MzQpIj4KDTwvcGF0aD4KDTwvZz4KDTxnPgoNPHBhdGggZD0iTTU0LjkyIDkwLjA4djkuOThjMCA0LjUxIDMuNyA4LjE3IDguMjYgOC4xN2gxLjY1YzQuNTYgMCA4LjI2LTMuNjYgOC4yNi04LjE3di05Ljk4SDU0LjkyeiIgZmlsbD0iI2VkYzM5MSI+Cg08L3BhdGg+Cg08L2c+Cg08Zz4KDTxwYXRoIGQ9Ik05MS4zMyA1MC40M0gzNi42N2MtNS44OSAwLTEwLjcxIDUuMTQtMTAuNzEgMTEuNDFzNC44MiAxMS40MSAxMC43MSAxMS40MWg1NC42NWM1Ljg5IDAgMTAuNzEtNS4xNCAxMC43MS0xMS40MXMtNC44MS0xMS40MS0xMC43LTExLjQxeiIgZmlsbD0iI2VkYzM5MSI+Cg08L3BhdGg+Cg08L2c+Cg08Zz4KDTxwYXRoIGQ9Ik02NCAxMS4wN2MtMTcuNCAwLTMzLjUyIDE4LjYxLTMzLjUyIDQ1LjM5YzAgMjYuNjQgMTYuNjEgMzkuODEgMzMuNTIgMzkuODFTOTcuNTIgODMuMSA5Ny41MiA1Ni40NmMwLTI2Ljc4LTE2LjEyLTQ1LjM5LTMzLjUyLTQ1LjM5eiIgZmlsbD0iI2Y5ZGRiZCI+Cg08L3BhdGg+Cg08L2c+Cg08ZyBmaWxsPSIjMzEyZDJkIj4KDTxlbGxpcHNlIGN4PSI0Ny41NiIgY3k9IjU4LjgxIiByeD0iNC45MyIgcnk9IjUuMSI+Cg08L2VsbGlwc2U+Cg08ZWxsaXBzZSBjeD0iODAuNDQiIGN5PSI1OC44MSIgcng9IjQuOTMiIHJ5PSI1LjEiPgoNPC9lbGxpcHNlPgoNPC9nPgoNPGcgZmlsbD0iIzQ1NDE0MCI+Cg08cGF0aCBkPSJNNTQuOTggNDkuODJjLS45My0xLjIzLTMuMDctMy4wMS03LjIzLTMuMDFzLTYuMzEgMS43OS03LjIzIDMuMDFjLS40MS41NC0uMzEgMS4xNy0uMDIgMS41NWMuMjYuMzUgMS4wNC42OCAxLjkuMzljLjg2LS4yOSAyLjU0LTEuMTYgNS4zNS0xLjE4YzIuODEuMDIgNC40OS44OSA1LjM1IDEuMThjLjg2LjI5IDEuNjQtLjAzIDEuOS0uMzljLjI5LS4zOC4zOS0xLjAxLS4wMi0xLjU1eiI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNODcuNDggNDkuODJjLS45My0xLjIzLTMuMDctMy4wMS03LjIzLTMuMDFzLTYuMzEgMS43OS03LjIzIDMuMDFjLS40MS41NC0uMzEgMS4xNy0uMDIgMS41NWMuMjYuMzUgMS4wNC42OCAxLjkuMzljLjg2LS4yOSAyLjU0LTEuMTYgNS4zNS0xLjE4YzIuODEuMDIgNC40OS44OSA1LjM1IDEuMThjLjg2LjI5IDEuNjQtLjAzIDEuOS0uMzljLjI5LS4zOC4zOS0xLjAxLS4wMi0xLjU1eiI+Cg08L3BhdGg+Cg08L2c+Cg08cGF0aCBkPSJNNjcuODYgNjguMDZjLS4xMS0uMDQtLjIxLS4wNy0uMzItLjA4aC03LjA3Yy0uMTEuMDEtLjIyLjA0LS4zMi4wOGMtLjY0LjI2LS45OS45Mi0uNjkgMS42M2MuMy43MSAxLjcxIDIuNjkgNC41NSAyLjY5czQuMjUtMS45OSA0LjU1LTIuNjljLjI5LS43MS0uMDYtMS4zNy0uNy0xLjYzeiIgZmlsbD0iI2RiYTY4OSI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNNzIuNDIgNzYuMTRjLTMuMTkgMS44OS0xMy42MyAxLjg5LTE2LjgxIDBjLTEuODMtMS4wOS0zLjcuNTgtMi45NCAyLjI0Yy43NSAxLjYzIDYuNDUgNS40MiAxMS4zNyA1LjQyczEwLjU1LTMuNzkgMTEuMy01LjQyYy43NS0xLjY2LTEuMDktMy4zMy0yLjkyLTIuMjR6IiBmaWxsPSIjNDQ0Ij4KDTwvcGF0aD4KDTxnPgoNPHBhdGggZD0iTTEwNC4wNyAyNS4xMWMtMi40NC0zLjctNy45MS04LjY0LTEyLjgyLTguOTdjLS43OS00LjcyLTUuODQtOC43Mi0xMC43My0xMC4yN2MtMTMuMjMtNC4xOS0yMS44NC41MS0yNi40NiAzLjA0Yy0uOTYuNTMtNy4xNyAzLjk3LTExLjUxIDEuNWMtMi43Mi0xLjU1LTIuNjctNS43NC0yLjY3LTUuNzRzLTguNTMgMy4yNS01LjYxIDEyLjI5Yy0yLjkzLjEyLTYuNzcgMS4zNi04LjggNS40N2MtMi40MiA0LjktMS41NiA4Ljk5LS44NiAxMC45NWMtMi41MiAyLjE0LTUuNjkgNi42OS0zLjUyIDEyLjZjMS42NCA0LjQ1IDguMTcgNi41IDguMTcgNi41Yy0uNDYgOC4wMSAxLjAzIDEyLjk0IDEuODIgMTQuOTRjLjE0LjM1LjYzLjMyLjcyLS4wNGMuOTktMy45NiA0LjM3LTE3LjggNC4wMy0yMC4yMWMwIDAgMTEuMzUtMi4yNSAyMi4xNy0xMC4yMmMyLjItMS42MiA0LjU5LTMgNy4xMy00LjAyYzEzLjU5LTUuNDEgMTYuNDQgMy44MiAxNi40NCAzLjgyczkuNDItMS44MSAxMi4yNiAxMS4yN2MxLjA3IDQuOSAxLjggMTIuNzUgMi40IDE4LjI0Yy4wNC4zOS41Ny40Ny43My4xMWMuOTUtMi4xOCAyLjg1LTYuNSAzLjMtMTAuOTFjLjE2LTEuNTUgNC4zNC0zLjYgNi4xNC0xMC4yNmMyLjM5LTguODgtLjU2LTE3LjQyLTIuMzMtMjAuMDl6IiBmaWxsPSIjZTYzZDAwIj4KDTwvcGF0aD4KDTxyYWRpYWxHcmFkaWVudCBpZD0iSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzNSIgY3g9Ijg0LjYyNSIgY3k9IjQxLjQ3NCIgcj0iMzUuNjMzIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC4zMDc2IC45NTE1IC0uNzA2IC4yMjgyIDg3Ljg3MyAtNDguNTEzKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgoNPHN0b3Agb2Zmc2V0PSIuNjk5IiBzdG9wLWNvbG9yPSIjZjk4YjI1IiBzdG9wLW9wYWNpdHk9IjAiPgoNPC9zdG9wPgoNPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjk4YjI1Ij4KDTwvc3RvcD4KDTwvcmFkaWFsR3JhZGllbnQ+Cg08cGF0aCBkPSJNMTAwLjIyIDU1LjVjLjE2LTEuNTUgNC4zNC0zLjYgNi4xNC0xMC4yNmMuMTktLjcxLjM1LTEuNDMuNS0yLjE1YzEuNDYtOC4wOS0xLjE2LTE1LjUyLTIuNzktMTcuOThjLTIuMjYtMy40Mi03LjEtNy44OS0xMS43LTguODFjLS40LS4wNS0uNzktLjEtMS4xNi0uMTJjMCAwIC4zMyAyLjE1LS41NCAzLjg2Yy0xLjEyIDIuMjItMy40MSAyLjc1LTMuNDEgMi43NWMxMS45OCAxMS45OCAxMS4xMiAyMiAxMi45NiAzMi43MXoiIGZpbGw9InVybCgjSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzNSkiPgoNPC9wYXRoPgoNPHJhZGlhbEdyYWRpZW50IGlkPSJJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTM2IiBjeD0iNDcuMjgiIGN5PSI0LjIiIHI9IjkuMzQzIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC44ODEzIC40NzI2IC0uNTYwMyAxLjA0NSA3Ljk2NiAtMjIuNTMyKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgoNPHN0b3Agb2Zmc2V0PSIuMzkzIiBzdG9wLWNvbG9yPSIjZjk4YjI1Ij4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTwvcmFkaWFsR3JhZGllbnQ+Cg08cGF0aCBkPSJNNTYuOTUgNy4zOWMtMS4wOS41My0yLjA2IDEuMDYtMi44OSAxLjUxYy0uOTYuNTMtNy4xNyAzLjk3LTExLjUxIDEuNWMtMi42Ny0xLjUyLTIuNjctNS41OC0yLjY3LTUuNzJjLTEuMjMgMS41Ny00Ljk1IDEyLjc4IDUuOTMgMTMuNTNjNC42OS4zMiA3LjU4LTMuNzcgOS4zLTcuMjNjLjYxLTEuMjcgMS41OC0zLjEgMS44NC0zLjU5eiIgZmlsbD0idXJsKCNJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTM2KSI+Cg08L3BhdGg+Cg08cmFkaWFsR3JhZGllbnQgaWQ9Ikljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MzciIGN4PSIxNjAuMzEyIiBjeT0iNjIuNTM4IiByPSIzNS40MSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgtLjkzNzggLS4zOTQ0IC4yMTgyIC0uNTI4NSAyMDYuNzk1IDExOS41OCkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KDTxzdG9wIG9mZnNldD0iLjcwOSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSI+Cg08L3N0b3A+Cg08L3JhZGlhbEdyYWRpZW50PgoNPHBhdGggZD0iTTc5LjE2IDUuNDdjNy4zMiAxLjk4IDEwLjg5IDUuNzEgMTIuMDggMTAuNjhjLjM1IDEuNDYuNzcgMTUuMDgtMjUuMjMtLjRjLTkuNjctNS43Ni03LjAzLTkuMzYtNS45LTkuNzdjNC40Mi0xLjYgMTAuODUtMi43MyAxOS4wNS0uNTF6IiBmaWxsPSJ1cmwoI0ljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MzcpIj4KDTwvcGF0aD4KDTxyYWRpYWxHcmFkaWVudCBpZD0iSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzOCIgY3g9IjQ2LjM2OSIgY3k9IjE1Ljk2MiIgcj0iMTMuMDk5IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIDEuMjIzMyAwIC0zLjU2NCkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KDTxzdG9wIG9mZnNldD0iLjc4NiIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSI+Cg08L3N0b3A+Cg08L3JhZGlhbEdyYWRpZW50PgoNPHBhdGggZD0iTTM5Ljg0IDQuNjhjLS4wMS4wMS0uMDMuMDEtLjA2LjAyaC0uMDFjLS45My4zOS04LjI0IDMuNzgtNS41MSAxMi4yNmw3Ljc4IDEuMjVjLTYuODktNi45OC0yLjE3LTEzLjU1LTIuMTctMTMuNTVzLS4wMi4wMS0uMDMuMDJ6IiBmaWxsPSJ1cmwoI0ljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5MzgpIj4KDTwvcGF0aD4KDTxyYWRpYWxHcmFkaWVudCBpZD0iSWNvbmlmeUlkMTdlY2RiMjkwNGQxNzhlYWIxNzkzOSIgY3g9IjM4LjE1MyIgY3k9IjI1LjQ0MiIgcj0iMTYuMDgzIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0uOTY1NyAtLjI1OTggLjI0MzIgLS45MDM3IDY4LjgxIDU4LjM0NykiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KDTxzdG9wIG9mZnNldD0iLjUwMyIgc3RvcC1jb2xvcj0iI2Y5OGIyNSIgc3RvcC1vcGFjaXR5PSIwIj4KDTwvc3RvcD4KDTxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y5OGIyNSI+Cg08L3N0b3A+Cg08L3JhZGlhbEdyYWRpZW50PgoNPHBhdGggZD0iTTM5LjA3IDE3LjczbC00LjgxLS43N2MtLjE5IDAtLjgzLjA2LTEuMTguMTFjLTIuNzEuMzgtNS45IDEuNzgtNy42MyA1LjM2Yy0xLjg2IDMuODYtMS44MSA3LjE3LTEuMyA5LjM4Yy4xNS43NC40NSAxLjU4LjQ1IDEuNThzMi4zOC0yLjI2IDguMDUtMi40MWw2LjQyLTEzLjI1eiIgZmlsbD0idXJsKCNJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTM5KSI+Cg08L3BhdGg+Cg08cmFkaWFsR3JhZGllbnQgaWQ9Ikljb25pZnlJZDE3ZWNkYjI5MDRkMTc4ZWFiMTc5NDAiIGN4PSIzNi4zOSIgY3k9IjQyLjkxNSIgcj0iMTYuODg2IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC45OTA3IC4xMzYzIC0uMTM1MyAuOTgzNyA2LjE0OCAtNC4yNTkpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+Cg08c3RvcCBvZmZzZXQ9Ii42OTkiIHN0b3AtY29sb3I9IiNmOThiMjUiIHN0b3Atb3BhY2l0eT0iMCI+Cg08L3N0b3A+Cg08c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmOThiMjUiPgoNPC9zdG9wPgoNPC9yYWRpYWxHcmFkaWVudD4KDTxwYXRoIGQ9Ik0yNC4zNyAzMy41OGMtMi4zNyAyLjEtNS41NiA2Ljc5LTMuMjEgMTIuNjFjMS43OCA0LjM5IDguMDkgNi4yOSA4LjA5IDYuMjljMCAuMDIgMS4yNi4zOSAxLjkxLjM5bDEuNDgtMjEuOWMtMy4wMyAwLTUuOTQuOTEtNy44MiAyLjIyYy4wMy4wNC0uNDYuMzYtLjQ1LjM5eiIgZmlsbD0idXJsKCNJY29uaWZ5SWQxN2VjZGIyOTA0ZDE3OGVhYjE3OTQwKSI+Cg08L3BhdGg+Cg08L2c+Cg08L3N2Zz4=", Lo = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIEdlbmVyYXRvcjogU1ZHIFJlcG8gTWl4ZXIgVG9vbHMgLS0+Cjxzdmcgd2lkdGg9IjgwMHB4IiBoZWlnaHQ9IjgwMHB4IiB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIGFyaWEtaGlkZGVuPSJ0cnVlIiByb2xlPSJpbWciIGNsYXNzPSJpY29uaWZ5IGljb25pZnktLWVtb2ppb25lIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0Ij4KDTxwYXRoIGQ9Ik01Ny42IDEzLjdjLS43LTEtMS42LTEuNy0yLjctMi4yYy0zLjQtMS43LTExLjYtMS4zLTEyLjMtNS43Yy0uOS01LjctNS45LjEtNi44LjFjLTEuMSAwLTEuNi0zLjktMy43LTMuOWMtMi4yIDAtMi43IDMuOS0zLjcgMy45Yy0uOSAwLTUuOS01LjgtNi44LS4xYy0uNyA0LjMtOSA0LTEyLjMgNS43Yy0xIC41LTIgMS4yLTIuNyAyLjJjLS41LjguNiAxLjYgMS4yLjljMS42LTIgNC44LTIuNCA3LjEtMi44YzEuOS0uNCA0LS42IDUuOS0xLjRjMi42LTEgMi41LTQuOSAzLjMtNC45Yy42IDAgMi43IDMgNC41IDNjMS42IDAgMi42LTMuNyAzLjUtMy43Yy45IDAgMS45IDMuNyAzLjUgMy43YzEuOSAwIDQtMyA0LjYtM2MuOCAwIC43IDMuOSAzLjMgNC45YzEuOC44IDMuOSAxIDUuOSAxLjRjMi4zLjUgNS42LjggNy4xIDIuOGMuNS43IDEuNi0uMiAxLjEtLjkiIGZpbGw9IiMwMGI5ZjEiPgoNPC9wYXRoPgoNPHBhdGggZD0iTTUzIDU3YzAgMi44LTIuMiA1LTUgNUgxNmMtMi44IDAtNS0yLjItNS01VjM2aDQydjIxeiIgZmlsbD0iIzg5OTY3YSI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNMzIgMTJjLTE1LjUgMC0yMSA4LjUtMjEgMjR2MjFoNDJWMzZjMC0xNS41LTUuNS0yNC0yMS0yNCIgZmlsbD0iI2I2YzRhNyI+Cg08L3BhdGg+Cg08ZyBmaWxsPSIjODk5NjdhIj4KDTxwYXRoIGQ9Ik0xMSA1NWMtMS4xIDAtMi0xLjItMi0yLjZ2LTYuOGMwLTEuNC45LTIuNiAyLTIuNnYxMiI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNNTMgNDNjMS4xIDAgMiAxLjIgMiAyLjZ2Ni44YzAgMS40LS45IDIuNi0yIDIuNlY0MyI+Cg08L3BhdGg+Cg08L2c+Cg08ZyBmaWxsPSIjM2U0MzQ3Ij4KDTxwYXRoIGQ9Ik03IDIwSDV2MzBoNHYtMkg3eiI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNNTcgMjB2MjhoLTJ2Mmg0VjIweiI+Cg08L3BhdGg+Cg08L2c+Cg08Y2lyY2xlIGN4PSI1OCIgY3k9IjIwIiByPSI0IiBmaWxsPSIjMDBiOWYxIj4KDTwvY2lyY2xlPgoNPGNpcmNsZSBjeD0iNiIgY3k9IjIwIiByPSI0IiBmaWxsPSIjZmY1MjYzIj4KDTwvY2lyY2xlPgoNPHBhdGggZD0iTTIxLjUgMzkuNWMtNC40IDAtOC0zLjYtOC04czMuNi04IDgtOHM4IDMuNiA4IDhzLTMuNiA4LTggOCIgZmlsbD0iI2VmZmZkOSI+Cg08L3BhdGg+Cg08Y2lyY2xlIGN4PSIyMS41IiBjeT0iMzEuNSIgcj0iNiIgZmlsbD0iIzU0NWI2MSI+Cg08L2NpcmNsZT4KDTxjaXJjbGUgY3g9IjIxLjUiIGN5PSIzMS41IiByPSIyLjMiIGZpbGw9IiNmZjUyNjMiPgoNPC9jaXJjbGU+Cg08cGF0aCBkPSJNNDIuNSAzOS41Yy00LjQgMC04LTMuNi04LThzMy42LTggOC04czggMy42IDggOHMtMy42IDgtOCA4IiBmaWxsPSIjZWZmZmQ5Ij4KDTwvcGF0aD4KDTxwYXRoIGQ9Ik00Mi41IDM3LjVjLTMuMyAwLTYtMi43LTYtNnMyLjctNiA2LTZzNiAyLjcgNiA2cy0yLjcgNi02IDYiIGZpbGw9IiM1NDViNjEiPgoNPC9wYXRoPgoNPGNpcmNsZSBjeD0iNDIuNSIgY3k9IjMxLjUiIHI9IjIuMyIgZmlsbD0iI2ZmNTI2MyI+Cg08L2NpcmNsZT4KDTxwYXRoIGQ9Ik0xOS44IDU0LjFjLTcuNCAwLTcuNC0xMyAwLTEzaDI0LjVjNy40IDAgNy40IDEzIDAgMTNIMTkuOCIgZmlsbD0iI2VmZmZkOSI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNMjAuNSA1Mi42Yy02IDAtNi0xMCAwLTEwaDIzYzYgMCA2IDEwIDAgMTBoLTIzIiBmaWxsPSIjODk5NjdhIj4KDTwvcGF0aD4KDTxnIG9wYWNpdHk9Ii43IiBmaWxsPSIjM2U0MzQ3Ij4KDTxwYXRoIGQ9Ik0yMS4yIDUwLjdjMCAxLjItMiAxLjItMiAwdi02LjFjMC0xLjIgMi0xLjIgMiAwdjYuMSI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNMjUuOSA1MC43YzAgMS4yLTIgMS4yLTIgMHYtNi4xYzAtMS4yIDItMS4yIDIgMHY2LjEiPgoNPC9wYXRoPgoNPHBhdGggZD0iTTMwLjYgNTAuN2MwIDEuMi0yIDEuMi0yIDB2LTYuMWMwLTEuMiAyLTEuMiAyIDB2Ni4xIj4KDTwvcGF0aD4KDTxwYXRoIGQ9Ik0zNS40IDUwLjdjMCAxLjItMiAxLjItMiAwdi02LjFjMC0xLjIgMi0xLjIgMiAwdjYuMSI+Cg08L3BhdGg+Cg08cGF0aCBkPSJNNDAuMSA1MC43YzAgMS4yLTIgMS4yLTIgMHYtNi4xYzAtMS4yIDItMS4yIDIgMHY2LjEiPgoNPC9wYXRoPgoNPHBhdGggZD0iTTQ0LjggNTAuN2MwIDEuMi0yIDEuMi0yIDB2LTYuMWMwLTEuMiAyLTEuMiAyIDB2Ni4xIj4KDTwvcGF0aD4KDTwvZz4KDTxjaXJjbGUgY3g9IjMyIiBjeT0iMzciIHI9IjIiIGZpbGw9IiNmNWY1ZjUiPgoNPC9jaXJjbGU+Cg08cGF0aCBmaWxsPSIjNTQ1YjYxIiBkPSJNMzAuMzE2IDM1Ljg2MmwuNTY2LS41NjVsMi44MjggMi44MjhsLS41NjUuNTY2eiI+Cg08L3BhdGg+Cg08L3N2Zz4=", ae = "https://demo-bot.tock.ai/io/tock/tockbot/web", ks = [
   {
     active: !1,
     name: "Default",
@@ -3809,7 +3858,7 @@ const q = vs("editorStore", () => {
             header: {
               avatar: {
                 botImage: {
-                  src: So,
+                  src: Lo,
                   width: "1.3em",
                   height: "1.3em"
                 }
@@ -4006,12 +4055,12 @@ const q = vs("editorStore", () => {
               avatar: {
                 display: !0,
                 botImage: {
-                  src: So,
+                  src: Lo,
                   width: "1em",
                   height: "1em"
                 },
                 userImage: {
-                  src: Ms,
+                  src: Is,
                   width: "1em",
                   height: "1em"
                 }
@@ -4238,18 +4287,18 @@ const q = vs("editorStore", () => {
       "--tvk_wrapper_padding": "0em"
     }
   }
-], ks = { class: "panel-body-wrapper d-flex flex-column" }, js = { class: "panel-body-body flex-grow-1" }, Ns = /* @__PURE__ */ M("div", { class: "option-category-header p-2 d-flex align-items-center border-top border-bottom" }, [
+], js = { class: "panel-body-wrapper d-flex flex-column" }, Ns = { class: "panel-body-body flex-grow-1" }, xs = /* @__PURE__ */ M("div", { class: "option-category-header p-2 d-flex align-items-center border-top border-bottom" }, [
   /* @__PURE__ */ M("h6", { class: "m-0 ms-1" }, "Templates")
-], -1), xs = ["onClick"], Ss = { class: "mb-0" }, Ls = {
+], -1), Ss = ["onClick"], Ls = { class: "mb-0" }, Ts = {
   key: 0,
   class: "text-small mt-1"
-}, Ts = {
+}, Ds = {
   key: 0,
   class: "alert alert-danger my-2 text-small"
-}, Ds = { class: "text-end" }, Cs = ["onClick"], Os = /* @__PURE__ */ X({
+}, Cs = { class: "text-end" }, Os = ["onClick"], As = /* @__PURE__ */ X({
   __name: "editor-templates",
   setup(e) {
-    const t = q(), o = P(Is);
+    const t = q(), o = P(ks);
     function n(a) {
       t.templateDirtyState ? (s(), a._confirmTemplateChangeWarning = !0) : r(a);
     }
@@ -4274,25 +4323,25 @@ const q = vs("editorStore", () => {
         l.style.setProperty(u[0], u[1]);
       }), Rn(a.tockUrl, a.options);
     }
-    return (a, l) => (y(), I("div", ks, [
-      M("div", js, [
-        Ns,
+    return (a, l) => (y(), I("div", js, [
+      M("div", Ns, [
+        xs,
         (y(!0), I(K, null, de(o.value, (c) => (y(), I("div", {
           class: Q(["templates-list-entry cursor-pointer py-2 px-3", { active: c.active }])
         }, [
           M("div", {
             onClick: (u) => n(c)
           }, [
-            M("h6", Ss, V(c.name), 1),
-            c.description ? (y(), I("div", Ls, V(c.description), 1)) : z("", !0)
-          ], 8, xs),
-          c._confirmTemplateChangeWarning ? (y(), I("div", Ts, [
+            M("h6", Ls, V(c.name), 1),
+            c.description ? (y(), I("div", Ts, V(c.description), 1)) : z("", !0)
+          ], 8, Ss),
+          c._confirmTemplateChangeWarning ? (y(), I("div", Ds, [
             me(" Your changes will be lost. Are you sure you want to apply this template and reset all your recent changes? "),
-            M("div", Ds, [
+            M("div", Cs, [
               M("button", {
                 class: "btn btn-primary btn-sm me-2",
                 onClick: (u) => i(c)
-              }, " Yes ", 8, Cs),
+              }, " Yes ", 8, Os),
               M("button", {
                 class: "btn btn-danger btn-sm",
                 onClick: l[0] || (l[0] = (u) => s())
@@ -4303,33 +4352,7 @@ const q = vs("editorStore", () => {
       ])
     ]));
   }
-});
-function ot(e, t = 300) {
-  let o;
-  return (...n) => {
-    clearTimeout(o), o = setTimeout(() => {
-      e(...n);
-    }, t);
-  };
-}
-function Lo(e) {
-  return !!(e && typeof e == "object" && !Array.isArray(e));
-}
-async function In(e) {
-  if (navigator.clipboard)
-    await navigator.clipboard.writeText(e);
-  else {
-    const t = document.createElement("textarea");
-    t.value = e, document.body.appendChild(t), t.focus(), t.select();
-    try {
-      document.execCommand("copy");
-    } catch (o) {
-      console.error("unable to copy to clipboard", o);
-    }
-    document.body.removeChild(t);
-  }
-}
-const As = {
+}), Es = {
   "box-shadow": [
     "none",
     "var(--tvk_base_box-shadow)",
@@ -4394,17 +4417,17 @@ const As = {
   "bottom-display": ["block", "none"],
   "text-decoration": ["none", "underline", "overline", "line-through"],
   float: ["none", "left", "right", "inline-start", "inline-end"]
-}, Es = { class: "form-label lh-1 d-flex gap-4 align-items-center justify-content-between position-relative" }, zs = { class: "input-group input-group-sm" }, Ps = /* @__PURE__ */ M("i", { class: "bi bi bi-caret-down-fill" }, null, -1), $s = [
-  Ps
-], Ys = ["contenteditable"], Gs = { key: 0 }, Rs = { key: 1 }, Ws = ["onClick"], Zs = /* @__PURE__ */ M("i", { class: "bi bi-arrow-90deg-left" }, null, -1), Vs = [
-  Zs
-], Bs = {
+}, zs = { class: "form-label lh-1 d-flex gap-4 align-items-center justify-content-between position-relative" }, Ps = { class: "input-group input-group-sm" }, $s = /* @__PURE__ */ M("i", { class: "bi bi bi-caret-down-fill" }, null, -1), Ys = [
+  $s
+], Gs = ["contenteditable"], Rs = { key: 0 }, Ws = { key: 1 }, Zs = ["onClick"], Vs = /* @__PURE__ */ M("i", { class: "bi bi-arrow-90deg-left" }, null, -1), Bs = [
+  Vs
+], Fs = {
   key: 0,
   class: "list-group variable-suggestions"
-}, Fs = ["onClick"], Us = {
+}, Us = ["onClick"], Hs = {
   key: 1,
   class: "form-text text-small"
-}, Hs = /* @__PURE__ */ M("span", { class: "text-muted" }, "Default value : ", -1), Qs = /* @__PURE__ */ X({
+}, Qs = /* @__PURE__ */ M("span", { class: "text-muted" }, "Default value : ", -1), Js = /* @__PURE__ */ X({
   __name: "editor-variable-entry",
   props: {
     variables: {
@@ -4420,8 +4443,8 @@ const As = {
       i() && n();
     }), Yn(() => {
       document.removeEventListener("click", A);
-    }), t.$onAction(({ name: p, store: x, args: E, after: L }) => {
-      p === "targetStylingVariable" && L(() => {
+    }), t.$onAction(({ name: p, store: x, args: E, after: T }) => {
+      p === "targetStylingVariable" && T(() => {
         i() && n();
       });
     });
@@ -4440,24 +4463,24 @@ const As = {
     let s = P(!1);
     const r = P(null);
     function a(p) {
-      var L;
+      var T;
       document.documentElement.style.setProperty(o.variable.key, p);
-      const E = (L = o.variables) == null ? void 0 : L.find((G) => G.key === o.variable.key);
+      const E = (T = o.variables) == null ? void 0 : T.find((G) => G.key === o.variable.key);
       E && (E.value = p), t.templateDirtyState = !0;
     }
     function l() {
       o.variable && a(o.variable.initialValue);
     }
     function c() {
-      return As[o.variable.name];
+      return Es[o.variable.name];
     }
     const u = P(null);
     function f() {
       const p = o.variable.value.toString().trim(), x = /var\(([^)]+)\)/g;
-      let E = [...p.matchAll(x)], L = [], G = 0;
+      let E = [...p.matchAll(x)], T = [], G = 0;
       return E.length ? (E.forEach(($) => {
-        $.index && $.index > G && L.push({ str: p.substring(G, $.index) }), L.push({ str: $[0], varName: $[1] }), G = $.index + $[0].length;
-      }), G < p.length && L.push({ str: p.substring(G, p.length) })) : L.push({ str: p }), L;
+        $.index && $.index > G && T.push({ str: p.substring(G, $.index) }), T.push({ str: $[0], varName: $[1] }), G = $.index + $[0].length;
+      }), G < p.length && T.push({ str: p.substring(G, p.length) })) : T.push({ str: p }), T;
     }
     function g(p, x) {
       p.stopPropagation(), t.jumpToStylingVariable(x);
@@ -4479,23 +4502,23 @@ const As = {
     }
     function O() {
       t.stylingVariableReached(), S(), setTimeout(() => {
-        j(999, 999);
+        k(999, 999);
       });
     }
-    function j(p = 0, x = 0) {
-      var L, G, $;
+    function k(p = 0, x = 0) {
+      var T, G, $;
       const E = document.getSelection();
       if (E) {
-        const R = document.createRange(), F = (L = u.value) == null ? void 0 : L.children[0], ze = (($ = (G = F == null ? void 0 : F.childNodes[0]) == null ? void 0 : G.textContent) == null ? void 0 : $.length) || 0;
+        const R = document.createRange(), F = (T = u.value) == null ? void 0 : T.children[0], ze = (($ = (G = F == null ? void 0 : F.childNodes[0]) == null ? void 0 : G.textContent) == null ? void 0 : $.length) || 0;
         F != null && F.childNodes[0] && (R.setStart(F == null ? void 0 : F.childNodes[0], Math.min(ze, p)), R.setEnd(F == null ? void 0 : F.childNodes[0], Math.min(ze, x)), E.removeAllRanges(), E.addRange(R));
       }
     }
-    function T(p) {
+    function L(p) {
       var E;
       N(p);
       let x = (E = p.clipboardData) == null ? void 0 : E.getData("text/plain");
       if (x) {
-        const L = document.getSelection(), G = L == null ? void 0 : L.getRangeAt(0);
+        const T = document.getSelection(), G = T == null ? void 0 : T.getRangeAt(0);
         if (G) {
           const $ = o.variable.value.toString(), R = $.substring(0, G.startOffset), F = $.substring(G.endOffset);
           x = R + x + F;
@@ -4506,25 +4529,25 @@ const As = {
     function w(p) {
       if (p.target, ["ArrowUp", "ArrowDown"].includes(p.key)) {
         N(p);
-        const L = o.variable.value.toString().split(" ");
+        const T = o.variable.value.toString().split(" ");
         let G = document.getSelection(), $ = 0;
         G && ($ = G.getRangeAt(0).startOffset);
         let R, F, ze = 0;
-        for (let re = 0; re < L.length; re++) {
-          if ($ <= ze + L[re].length) {
-            R = L[re], F = re;
+        for (let re = 0; re < T.length; re++) {
+          if ($ <= ze + T[re].length) {
+            R = T[re], F = re;
             break;
           }
-          ze += L[re].length + 1;
+          ze += T[re].length + 1;
         }
         var x = /^\d*\.?\d+(?:em|rem|px|%|vh|vw|pt)?/g;
         if (x.test(R)) {
           const re = CSSNumericValue.parse(R);
           let Xe = 1;
-          p.ctrlKey && (Xe /= 10), p.shiftKey && (Xe *= 10), p.key === "ArrowUp" && (re.value += Xe), p.key === "ArrowDown" && (re.value -= Xe), L[F] = re.toString();
-          const Xt = L.join(" ");
+          p.ctrlKey && (Xe /= 10), p.shiftKey && (Xe *= 10), p.key === "ArrowUp" && (re.value += Xe), p.key === "ArrowDown" && (re.value -= Xe), T[F] = re.toString();
+          const Xt = T.join(" ");
           a(Xt), m = Xt, setTimeout(() => {
-            j($, $);
+            k($, $);
           });
         }
       }
@@ -4536,9 +4559,9 @@ const As = {
     function A(p) {
       b.value && _(p);
     }
-    function k(p) {
+    function j(p) {
       var E;
-      const x = (E = o.variables) == null ? void 0 : E.find((L) => L.key === p);
+      const x = (E = o.variables) == null ? void 0 : E.find((T) => T.key === p);
       return x ? x.value.toString() : null;
     }
     function h(p) {
@@ -4558,7 +4581,7 @@ const As = {
         ref: r,
         class: Q(["position-relative", { "targeted-item": i() }])
       }, [
-        M("label", Es, [
+        M("label", zs, [
           M("span", {
             class: Q(["text-nowrap", {
               "fst-italic": o.variable.value != o.variable.initialValue
@@ -4566,91 +4589,91 @@ const As = {
           }, V(o.variable.name), 3),
           W((y(), I("span", {
             class: "text-muted text-small text-end text-truncate py-1",
-            onClick: x[0] || (x[0] = (L) => v(o.variable.key))
+            onClick: x[0] || (x[0] = (T) => v(o.variable.key))
           }, [
             me(V(o.variable.key), 1)
           ])), [
             [E, o.variable.key + " (click to copy)"]
           ])
         ]),
-        M("div", zs, [
+        M("div", Ps, [
           c() ? (y(), I("button", {
             key: 0,
             class: "btn btn-secondary px-1",
             type: "button",
             onClick: _
-          }, $s)) : z("", !0),
+          }, Ys)) : z("", !0),
           M("div", {
             class: "form-control",
             ref_key: "inputRef",
             ref: u,
             spellcheck: "false",
             contenteditable: d(s),
-            onClick: x[1] || (x[1] = (L) => S()),
-            onBlur: x[2] || (x[2] = (L) => C()),
-            onFocus: x[3] || (x[3] = (L) => O()),
-            onKeyup: x[4] || (x[4] = (L) => N(L)),
-            onPaste: x[5] || (x[5] = (L) => T(L)),
-            onInput: x[6] || (x[6] = Gn((L) => D(L), ["self"])),
-            onKeydown: x[7] || (x[7] = (L) => w(L)),
+            onClick: x[1] || (x[1] = (T) => S()),
+            onBlur: x[2] || (x[2] = (T) => C()),
+            onFocus: x[3] || (x[3] = (T) => O()),
+            onKeyup: x[4] || (x[4] = (T) => N(T)),
+            onPaste: x[5] || (x[5] = (T) => L(T)),
+            onInput: x[6] || (x[6] = Gn((T) => D(T), ["self"])),
+            onKeydown: x[7] || (x[7] = (T) => w(T)),
             tabindex: "0"
           }, [
             d(s) ? (y(), I(K, { key: 0 }, [
               me(V(d(m)), 1)
             ], 64)) : z("", !0),
-            d(s) ? z("", !0) : (y(!0), I(K, { key: 1 }, de(f(), (L) => (y(), I(K, null, [
-              L.varName ? z("", !0) : (y(), I("span", Gs, V(L.str), 1)),
-              L.varName ? (y(), I("span", Rs, [
-                h(L.varName) ? (y(), I("span", {
+            d(s) ? z("", !0) : (y(!0), I(K, { key: 1 }, de(f(), (T) => (y(), I(K, null, [
+              T.varName ? z("", !0) : (y(), I("span", Rs, V(T.str), 1)),
+              T.varName ? (y(), I("span", Ws, [
+                h(T.varName) ? (y(), I("span", {
                   key: 0,
-                  style: Ge({ "--prvw-color": "var(" + L.varName + ")" }),
+                  style: Ge({ "--prvw-color": "var(" + T.varName + ")" }),
                   class: "variable-color-preview"
                 }, null, 4)) : z("", !0),
                 me("var("),
                 W((y(), I("a", {
-                  onClick: (G) => g(G, L.varName),
+                  onClick: (G) => g(G, T.varName),
                   href: "javascript:void(null)",
                   class: "variable-link"
                 }, [
-                  me(V(L.varName), 1)
-                ], 8, Ws)), [
-                  [E, k(L.varName)]
+                  me(V(T.varName), 1)
+                ], 8, Zs)), [
+                  [E, j(T.varName)]
                 ]),
                 me(") ")
               ])) : z("", !0)
             ], 64))), 256))
-          ], 40, Ys),
+          ], 40, Gs),
           o.variable.value != o.variable.initialValue ? W((y(), I("button", {
             key: 1,
             class: "btn btn-secondary",
             type: "button",
             id: "button-addon2",
-            onClick: x[8] || (x[8] = (L) => l()),
+            onClick: x[8] || (x[8] = (T) => l()),
             tabindex: "1"
-          }, Vs)), [
+          }, Bs)), [
             [E, "Restore default value"]
           ]) : z("", !0)
         ]),
-        d(b) ? (y(), I("ul", Bs, [
-          (y(!0), I(K, null, de(c(), (L) => (y(), I("li", {
+        d(b) ? (y(), I("ul", Fs, [
+          (y(!0), I(K, null, de(c(), (T) => (y(), I("li", {
             class: "list-group-item cursor-pointer",
-            onClick: (G) => a(L)
-          }, V(L), 9, Fs))), 256))
+            onClick: (G) => a(T)
+          }, V(T), 9, Us))), 256))
         ])) : z("", !0),
-        o.variable.value != o.variable.initialValue ? (y(), I("div", Us, [
-          Hs,
+        o.variable.value != o.variable.initialValue ? (y(), I("div", Hs, [
+          Qs,
           me(V(o.variable.initialValue.toString()), 1)
         ])) : z("", !0)
       ], 2);
     };
   }
-}), Js = {
+}), Ks = {
   key: 0,
   class: "bi bi-chevron-right"
-}, Ks = {
+}, Xs = {
   key: 1,
   class: "bi bi-chevron-down"
-}, Xs = { class: "p-3 border-bottom" }, qs = /* @__PURE__ */ X({
+}, qs = { class: "p-3 border-bottom" }, er = /* @__PURE__ */ X({
   __name: "editor-variables-group",
   props: {
     variables: {
@@ -4688,14 +4711,14 @@ const As = {
           }]),
           onClick: s[0] || (s[0] = (l) => o.path.length > 1 ? Ne(n) ? n.value = !d(n) : n = !d(n) : null)
         }, [
-          o.path.length > 1 && !d(n) ? (y(), I("i", Js)) : z("", !0),
-          o.path.length > 1 && d(n) ? (y(), I("i", Ks)) : z("", !0),
+          o.path.length > 1 && !d(n) ? (y(), I("i", Ks)) : z("", !0),
+          o.path.length > 1 && d(n) ? (y(), I("i", Xs)) : z("", !0),
           M("h6", {
             class: Q(["m-0 ms-1", { "fw-bold": o.path.length === 1 }])
           }, V((a = e.path) == null ? void 0 : a.join(" | ")), 3)
         ], 2),
-        d(n) ? (y(!0), I(K, { key: 0 }, de(d(bs)(e.variables, e.path), (l, c) => (y(), I("div", Xs, [
-          (y(), J(Qs, {
+        d(n) ? (y(!0), I(K, { key: 0 }, de(d(bs)(e.variables, e.path), (l, c) => (y(), I("div", qs, [
+          (y(), J(Js, {
             variables: e.variables,
             variable: l,
             key: l.key
@@ -4711,7 +4734,7 @@ const As = {
       ], 64);
     };
   }
-}), er = { class: "panel-body-wrapper d-flex flex-column" }, tr = { class: "panel-body-header pt-1 px-1 border-bottom" }, or = { class: "d-flex flex-wrap justify-content-between" }, nr = ["onClick"], ir = { class: "panel-body-body flex-grow-1" }, sr = /* @__PURE__ */ X({
+}), tr = { class: "panel-body-wrapper d-flex flex-column" }, or = { class: "panel-body-header pt-1 px-1 border-bottom" }, nr = { class: "d-flex flex-wrap justify-content-between" }, ir = ["onClick"], sr = { class: "panel-body-body flex-grow-1" }, rr = /* @__PURE__ */ X({
   __name: "editor-variables",
   setup(e) {
     const t = q();
@@ -4724,17 +4747,17 @@ const As = {
     function i() {
       o.value = Kt(), n.value = ys(o.value);
     }
-    return (s, r) => (y(), I("div", er, [
-      M("div", tr, [
-        M("div", or, [
+    return (s, r) => (y(), I("div", tr, [
+      M("div", or, [
+        M("div", nr, [
           (y(!0), I(K, null, de(n.value, (a) => (y(), I("div", {
             class: Q(["tag cursor-pointer me-1 mb-1 text-nowrap flex-fill text-center", { active: d(t).stylingCategory === a }]),
             onClick: (l) => d(t).setStylingCategory(a)
-          }, V(a), 11, nr))), 256))
+          }, V(a), 11, ir))), 256))
         ])
       ]),
-      M("div", ir, [
-        (y(), J(qs, {
+      M("div", sr, [
+        (y(), J(er, {
           variables: o.value,
           path: [d(t).stylingCategory],
           key: d(t).currentCustomizationName + d(t).stylingCategory
@@ -4742,24 +4765,24 @@ const As = {
       ])
     ]));
   }
-}), rr = { class: "form-label lh-1 d-flex gap-4 align-items-center justify-content-between position-relative" }, ar = { class: "text-muted text-small text-end text-truncate rtl" }, lr = { class: "form-text text-small mb-2" }, cr = { class: "input-group input-group-sm" }, ur = ["value", "disabled"], dr = ["value", "disabled"], pr = {
+}), ar = { class: "form-label lh-1 d-flex gap-4 align-items-center justify-content-between position-relative" }, lr = { class: "text-muted text-small text-end text-truncate rtl" }, cr = { class: "form-text text-small mb-2" }, ur = { class: "input-group input-group-sm" }, dr = ["value", "disabled"], pr = ["value", "disabled"], hr = {
   key: 2,
   class: "form-check form-switch"
-}, hr = ["id", "checked", "disabled"], gr = ["for"], fr = { key: 0 }, mr = { key: 1 }, _r = { key: 3 }, vr = { class: "form-check form-switch" }, yr = ["id", "disabled"], br = ["for"], wr = { key: 0 }, Mr = { key: 1 }, Ir = {
+}, gr = ["id", "checked", "disabled"], fr = ["for"], mr = { key: 0 }, _r = { key: 1 }, vr = { key: 3 }, yr = { class: "form-check form-switch" }, br = ["id", "disabled"], wr = ["for"], Mr = { key: 0 }, Ir = { key: 1 }, kr = {
   key: 0,
   class: "input-group-sm imageDef-wrapper mt-2"
-}, kr = /* @__PURE__ */ M("label", { class: "form-label text-small mb-0" }, "Src (url or svg data image)", -1), jr = ["value", "disabled"], Nr = { class: "d-flex gap-3" }, xr = { class: "input-group-sm" }, Sr = /* @__PURE__ */ M("label", { class: "form-label text-small mb-0" }, "Width", -1), Lr = ["value", "disabled"], Tr = { class: "input-group-sm" }, Dr = /* @__PURE__ */ M("label", { class: "form-label text-small mb-0" }, "Height", -1), Cr = ["value", "disabled"], Or = {
+}, jr = /* @__PURE__ */ M("label", { class: "form-label text-small mb-0" }, "Src (url or svg data image)", -1), Nr = ["value", "disabled"], xr = { class: "d-flex gap-3" }, Sr = { class: "input-group-sm" }, Lr = /* @__PURE__ */ M("label", { class: "form-label text-small mb-0" }, "Width", -1), Tr = ["value", "disabled"], Dr = { class: "input-group-sm" }, Cr = /* @__PURE__ */ M("label", { class: "form-label text-small mb-0" }, "Height", -1), Or = ["value", "disabled"], Ar = {
   key: 4,
   class: "w-100"
-}, Ar = {
+}, Er = {
   key: 0,
   class: "d-flex text-small"
-}, Er = /* @__PURE__ */ M("div", { style: { width: "45%" } }, "Header name", -1), zr = /* @__PURE__ */ M("div", null, "Header value", -1), Pr = [
-  Er,
-  zr
-], $r = { class: "input-group input-group-sm mb-1" }, Yr = ["value", "onInput", "disabled"], Gr = ["value", "onInput", "disabled"], Rr = ["onClick", "disabled"], Wr = /* @__PURE__ */ M("i", { class: "bi bi-trash" }, null, -1), Zr = [
-  Wr
-], Vr = ["disabled"], nt = 500, Pe = "New-Header-Name", Br = /* @__PURE__ */ X({
+}, zr = /* @__PURE__ */ M("div", { style: { width: "45%" } }, "Header name", -1), Pr = /* @__PURE__ */ M("div", null, "Header value", -1), $r = [
+  zr,
+  Pr
+], Yr = { class: "input-group input-group-sm mb-1" }, Gr = ["value", "onInput", "disabled"], Rr = ["value", "onInput", "disabled"], Wr = ["onClick", "disabled"], Zr = /* @__PURE__ */ M("i", { class: "bi bi-trash" }, null, -1), Vr = [
+  Zr
+], Br = ["disabled"], nt = 500, Pe = "New-Header-Name", Fr = /* @__PURE__ */ X({
   __name: "editor-options-entry",
   props: {
     optionsModel: {},
@@ -4770,8 +4793,8 @@ const As = {
   },
   setup(e) {
     const t = q();
-    t.$onAction(({ name: j, store: T, args: w, after: b }) => {
-      j === "refreshEditorPanels" && b(() => {
+    t.$onAction(({ name: k, store: L, args: w, after: b }) => {
+      k === "refreshEditorPanels" && b(() => {
         setTimeout(() => {
           a();
         });
@@ -4781,42 +4804,42 @@ const As = {
     let n = P(!0), i = P(), s = P(!1), r;
     Je(() => {
       r = [o.group, o.path].join(".");
-      const j = o.optionsModel[o.group], T = o.currentOptions[o.group], w = l(j, o.path), b = l(T, o.path);
+      const k = o.optionsModel[o.group], L = o.currentOptions[o.group], w = l(k, o.path), b = l(L, o.path);
       a(), typeof b > "u" ? i.value = w.default : i.value = b, o.value.type === "ImageDef" && i.value && (s.value = !0);
     });
     function a() {
-      let j = !0;
-      const T = o.optionsModel[o.group], w = l(T, o.path);
+      let k = !0;
+      const L = o.optionsModel[o.group], w = l(L, o.path);
       w.conditions && w.conditions.forEach((b) => {
-        l(o.currentOptions, b) || (j = !1);
-      }), n.value = j;
+        l(o.currentOptions, b) || (k = !1);
+      }), n.value = k;
     }
-    const l = (j, T) => T.split(".").reduce((w, b) => b in w ? w[b] : void 0, j);
-    function c(j, T) {
-      t.templateDirtyState = !0, Wn(j, T);
+    const l = (k, L) => L.split(".").reduce((w, b) => b in w ? w[b] : void 0, k);
+    function c(k, L) {
+      t.templateDirtyState = !0, Wn(k, L);
     }
-    const u = ot((j) => {
-      c(r, j), i.value = j, t.refreshEditorPanels();
+    const u = ot((k) => {
+      c(r, k), i.value = k, t.refreshEditorPanels();
     }, nt);
-    Wt(s, (j, T) => {
-      j || (c(r, void 0), i.value = void 0);
+    Wt(s, (k, L) => {
+      k || (c(r, void 0), i.value = void 0);
     });
-    const f = ot((j, T) => {
-      const w = [r, j].join(".");
-      c(w, T);
+    const f = ot((k, L) => {
+      const w = [r, k].join(".");
+      c(w, L);
       let b = i.value ? i.value : {};
-      b[j] = T, i.value = b;
-    }, nt), g = ot((j, T) => {
-      i.value[T] = i.value[j], delete i.value[j], c(r, i.value);
-    }, nt), m = ot((j, T) => {
-      i.value[j] = T, c(r, i.value);
+      b[k] = L, i.value = b;
+    }, nt), g = ot((k, L) => {
+      i.value[L] = i.value[k], delete i.value[k], c(r, i.value);
+    }, nt), m = ot((k, L) => {
+      i.value[k] = L, c(r, i.value);
     }, nt);
-    function S(j) {
-      delete i.value[j], Object.keys(i.value).length < 1 && (i.value = void 0), c(r, i.value);
+    function S(k) {
+      delete i.value[k], Object.keys(i.value).length < 1 && (i.value = void 0), c(r, i.value);
     }
     const C = P({});
-    function N(j, T) {
-      C.value[j] = T;
+    function N(k, L) {
+      C.value[k] = L;
     }
     function D() {
       return !i.value || i.value[Pe] === void 0;
@@ -4826,36 +4849,36 @@ const As = {
         C.value[Pe].focus(), C.value[Pe].select();
       });
     }
-    return (j, T) => {
+    return (k, L) => {
       var b, _, A;
       const w = yt("tooltip");
       return y(), I("div", {
         class: Q(["p-3 border-bottom", { inactive: !d(n) }])
       }, [
-        M("label", rr, [
+        M("label", ar, [
           M("span", {
             class: Q(["text-nowrap", { "fst-italic": d(i) != o.value.default }])
           }, V(o.value.title), 3),
-          W((y(), I("span", ar, [
+          W((y(), I("span", lr, [
             me(V(d(r)), 1)
           ])), [
             [w, d(r)]
           ])
         ]),
-        M("div", lr, V(o.value.description), 1),
-        M("div", cr, [
+        M("div", cr, V(o.value.description), 1),
+        M("div", ur, [
           o.value.type === "string" ? (y(), I("input", {
             key: 0,
             class: "form-control",
             placeholder: "Not specified",
             spellcheck: "false",
             value: d(i),
-            onInput: T[0] || (T[0] = (k) => {
+            onInput: L[0] || (L[0] = (j) => {
               var h;
-              return d(u)((h = k == null ? void 0 : k.target) == null ? void 0 : h.value);
+              return d(u)((h = j == null ? void 0 : j.target) == null ? void 0 : h.value);
             }),
             disabled: !d(n)
-          }, null, 40, ur)) : z("", !0),
+          }, null, 40, dr)) : z("", !0),
           o.value.type === "number" ? (y(), I("input", {
             key: 1,
             type: "number",
@@ -4863,107 +4886,107 @@ const As = {
             placeholder: "Not specified",
             spellcheck: "false",
             value: d(i),
-            onInput: T[1] || (T[1] = (k) => {
+            onInput: L[1] || (L[1] = (j) => {
               var h;
-              return d(u)((h = k == null ? void 0 : k.target) == null ? void 0 : h.value);
+              return d(u)((h = j == null ? void 0 : j.target) == null ? void 0 : h.value);
             }),
             disabled: !d(n)
-          }, null, 40, dr)) : z("", !0),
-          o.value.type === "boolean" ? (y(), I("div", pr, [
+          }, null, 40, pr)) : z("", !0),
+          o.value.type === "boolean" ? (y(), I("div", hr, [
             M("input", {
               class: "form-check-input",
               type: "checkbox",
               role: "switch",
-              id: j.path,
+              id: k.path,
               checked: d(i),
-              onInput: T[2] || (T[2] = (k) => {
+              onInput: L[2] || (L[2] = (j) => {
                 var h;
-                return d(u)((h = k == null ? void 0 : k.target) == null ? void 0 : h.checked);
+                return d(u)((h = j == null ? void 0 : j.target) == null ? void 0 : h.checked);
               }),
               disabled: !d(n)
-            }, null, 40, hr),
+            }, null, 40, gr),
             M("label", {
               class: "form-check-label",
-              for: j.path
+              for: k.path
             }, [
-              d(i) ? (y(), I("span", fr, "enabled")) : z("", !0),
-              d(i) ? z("", !0) : (y(), I("span", mr, "disabled"))
-            ], 8, gr)
+              d(i) ? (y(), I("span", mr, "enabled")) : z("", !0),
+              d(i) ? z("", !0) : (y(), I("span", _r, "disabled"))
+            ], 8, fr)
           ])) : z("", !0),
-          o.value.type === "ImageDef" ? (y(), I("div", _r, [
-            M("div", vr, [
+          o.value.type === "ImageDef" ? (y(), I("div", vr, [
+            M("div", yr, [
               W(M("input", {
                 class: "form-check-input",
                 type: "checkbox",
                 role: "switch",
-                id: j.path,
-                "onUpdate:modelValue": T[3] || (T[3] = (k) => Ne(s) ? s.value = k : s = k),
+                id: k.path,
+                "onUpdate:modelValue": L[3] || (L[3] = (j) => Ne(s) ? s.value = j : s = j),
                 disabled: !d(n)
-              }, null, 8, yr), [
+              }, null, 8, br), [
                 [Ao, d(s)]
               ]),
               M("label", {
                 class: "form-check-label",
-                for: j.path
+                for: k.path
               }, [
-                d(s) ? (y(), I("span", wr, "enabled")) : z("", !0),
-                d(s) ? z("", !0) : (y(), I("span", Mr, "disabled"))
-              ], 8, br)
+                d(s) ? (y(), I("span", Mr, "enabled")) : z("", !0),
+                d(s) ? z("", !0) : (y(), I("span", Ir, "disabled"))
+              ], 8, wr)
             ]),
-            d(s) ? (y(), I("div", Ir, [
-              kr,
+            d(s) ? (y(), I("div", kr, [
+              jr,
               M("input", {
                 class: "form-control",
                 placeholder: "Not specified",
                 spellcheck: "false",
                 value: (b = d(i)) == null ? void 0 : b.src,
-                onInput: T[4] || (T[4] = (k) => {
+                onInput: L[4] || (L[4] = (j) => {
                   var h;
-                  return d(f)("src", (h = k == null ? void 0 : k.target) == null ? void 0 : h.value);
+                  return d(f)("src", (h = j == null ? void 0 : j.target) == null ? void 0 : h.value);
                 }),
                 disabled: !d(n)
-              }, null, 40, jr),
-              M("div", Nr, [
-                M("div", xr, [
-                  Sr,
+              }, null, 40, Nr),
+              M("div", xr, [
+                M("div", Sr, [
+                  Lr,
                   M("input", {
                     class: "form-control",
                     placeholder: "Not specified",
                     spellcheck: "false",
                     value: (_ = d(i)) == null ? void 0 : _.width,
-                    onInput: T[5] || (T[5] = (k) => {
+                    onInput: L[5] || (L[5] = (j) => {
                       var h;
                       return d(f)(
                         "width",
-                        (h = k == null ? void 0 : k.target) == null ? void 0 : h.value
+                        (h = j == null ? void 0 : j.target) == null ? void 0 : h.value
                       );
                     }),
                     disabled: !d(n)
-                  }, null, 40, Lr)
+                  }, null, 40, Tr)
                 ]),
-                M("div", Tr, [
-                  Dr,
+                M("div", Dr, [
+                  Cr,
                   M("input", {
                     class: "form-control",
                     placeholder: "Not specified",
                     spellcheck: "false",
                     value: (A = d(i)) == null ? void 0 : A.height,
-                    onInput: T[6] || (T[6] = (k) => {
+                    onInput: L[6] || (L[6] = (j) => {
                       var h;
                       return d(f)(
                         "height",
-                        (h = k == null ? void 0 : k.target) == null ? void 0 : h.value
+                        (h = j == null ? void 0 : j.target) == null ? void 0 : h.value
                       );
                     }),
                     disabled: !d(n)
-                  }, null, 40, Cr)
+                  }, null, 40, Or)
                 ])
               ])
             ])) : z("", !0)
           ])) : z("", !0),
-          o.value.type === "KeyValues" ? (y(), I("div", Or, [
-            d(i) ? (y(), I("div", Ar, Pr)) : z("", !0),
-            (y(!0), I(K, null, de(d(i), (k, h) => (y(), I("div", $r, [
+          o.value.type === "KeyValues" ? (y(), I("div", Ar, [
+            d(i) ? (y(), I("div", Er, $r)) : z("", !0),
+            (y(!0), I(K, null, de(d(i), (j, h) => (y(), I("div", Yr, [
               M("input", {
                 class: "form-control",
                 placeholder: "Not specified",
@@ -4979,12 +5002,12 @@ const As = {
                   );
                 },
                 disabled: !d(n)
-              }, null, 40, Yr),
+              }, null, 40, Gr),
               M("input", {
                 class: "form-control",
                 placeholder: "Not specified",
                 spellcheck: "false",
-                value: k,
+                value: j,
                 onInput: (v) => {
                   var p;
                   return d(m)(
@@ -4993,25 +5016,25 @@ const As = {
                   );
                 },
                 disabled: !d(n)
-              }, null, 40, Gr),
+              }, null, 40, Rr),
               M("button", {
                 class: "btn btn-danger btn-sm",
                 onClick: (v) => S(h),
                 disabled: !d(n)
-              }, Zr, 8, Rr)
+              }, Vr, 8, Wr)
             ]))), 256)),
             D() ? (y(), I("button", {
               key: 1,
               class: "btn btn-link btn-sm p-0",
               onClick: O,
               disabled: !d(n)
-            }, " Add new header ", 8, Vr)) : z("", !0)
+            }, " Add new header ", 8, Br)) : z("", !0)
           ])) : z("", !0)
         ])
       ], 2);
     };
   }
-}), Fr = /* @__PURE__ */ X({
+}), Ur = /* @__PURE__ */ X({
   __name: "editor-options-group-walker",
   props: {
     optionsModel: {
@@ -5044,7 +5067,7 @@ const As = {
       }
       return r.sort((a, l) => a[1].index && l[1].index ? a[1].index - l[1].index : a[1].index ? -1 : l[1].index ? 1 : a[0].localeCompare(l[0]));
     }
-    return (i, s) => (y(!0), I(K, null, de(d(o), (r) => (y(), J(Br, {
+    return (i, s) => (y(!0), I(K, null, de(d(o), (r) => (y(), J(Fr, {
       "options-model": t.optionsModel,
       group: t.group,
       path: r[0],
@@ -5052,7 +5075,7 @@ const As = {
       "current-options": t.currentOptions
     }, null, 8, ["options-model", "group", "path", "value", "current-options"]))), 256));
   }
-}), Ur = { class: "option-category-header p-2 d-flex align-items-center border-top border-bottom" }, Hr = { class: "m-0 ms-1" }, kn = /* @__PURE__ */ X({
+}), Hr = { class: "option-category-header p-2 d-flex align-items-center border-top border-bottom" }, Qr = { class: "m-0 ms-1" }, kn = /* @__PURE__ */ X({
   __name: "editor-options-group",
   props: {
     optionsModel: {
@@ -5071,17 +5094,17 @@ const As = {
   setup(e) {
     const t = e;
     return (o, n) => (y(), I(K, null, [
-      M("div", Ur, [
-        M("h6", Hr, V(t.group), 1)
+      M("div", Hr, [
+        M("h6", Qr, V(t.group), 1)
       ]),
-      Rt(Fr, {
+      Rt(Ur, {
         "options-model": t.optionsModel,
         group: t.group,
         "current-options": t.currentOptions
       }, null, 8, ["options-model", "group", "current-options"])
     ], 64));
   }
-}), Qr = { class: "panel-body-wrapper d-flex flex-column" }, Jr = { class: "panel-body-body flex-grow-1" }, Kr = /* @__PURE__ */ X({
+}), Jr = { class: "panel-body-wrapper d-flex flex-column" }, Kr = { class: "panel-body-body flex-grow-1" }, Xr = /* @__PURE__ */ X({
   __name: "editor-preferences",
   setup(e) {
     const t = q();
@@ -5096,8 +5119,8 @@ const As = {
       const r = dt();
       o.value = r, n.value = ["localStorage", "initialization", "preferences"];
     }
-    return (r, a) => (y(), I("div", Qr, [
-      M("div", Jr, [
+    return (r, a) => (y(), I("div", Jr, [
+      M("div", Kr, [
         (y(!0), I(K, null, de(d(n), (l, c) => (y(), J(kn, {
           "options-model": d(o),
           group: l,
@@ -5107,7 +5130,7 @@ const As = {
       ])
     ]));
   }
-}), Xr = { class: "panel-body-wrapper d-flex flex-column" }, qr = { class: "panel-body-body flex-grow-1" }, ea = /* @__PURE__ */ X({
+}), qr = { class: "panel-body-wrapper d-flex flex-column" }, ea = { class: "panel-body-body flex-grow-1" }, ta = /* @__PURE__ */ X({
   __name: "editor-wording",
   setup(e) {
     const t = q();
@@ -5122,8 +5145,8 @@ const As = {
       const r = dt();
       o.value = r, n.value = ["wording"];
     }
-    return (r, a) => (y(), I("div", Xr, [
-      M("div", qr, [
+    return (r, a) => (y(), I("div", qr, [
+      M("div", ea, [
         (y(!0), I(K, null, de(d(n), (l, c) => (y(), J(kn, {
           "options-model": d(o),
           group: l,
@@ -5133,12 +5156,12 @@ const As = {
       ])
     ]));
   }
-}), ta = (e, t) => {
+}), oa = (e, t) => {
   const o = e.__vccOpts || e;
   for (const [n, i] of t)
     o[n] = i;
   return o;
-}, oa = /* @__PURE__ */ ta(ea, [["__scopeId", "data-v-8ed05402"]]);
+}, na = /* @__PURE__ */ oa(ta, [["__scopeId", "data-v-8ed05402"]]);
 var $e = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, jn = { exports: {} };
 (function(e, t) {
   (function(o, n) {
@@ -5198,8 +5221,8 @@ var $e = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
       if ((C || m && S || a) && typeof FileReader < "u") {
         var N = new FileReader();
         N.onloadend = function() {
-          var j = N.result;
-          j = C ? j : j.replace(/^data:[^;]*;/, "data:attachment/file;"), g ? g.location.href = j : location = j, g = null;
+          var k = N.result;
+          k = C ? k : k.replace(/^data:[^;]*;/, "data:attachment/file;"), g ? g.location.href = k : location = k, g = null;
         }, N.readAsDataURL(c);
       } else {
         var D = r.URL || r.webkitURL, O = D.createObjectURL(c);
@@ -5211,43 +5234,43 @@ var $e = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
     r.saveAs = l.saveAs = l, e.exports = l;
   });
 })(jn);
-var na = jn.exports;
-const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "panel-body-header py-2 px-3 border-bottom text-small d-flex align-items-center" }, ra = { class: "form-check form-check-inline no-min-height" }, aa = ["value"], la = /* @__PURE__ */ M("label", {
+var ia = jn.exports;
+const sa = { class: "panel-body-wrapper d-flex flex-column" }, ra = { class: "panel-body-header py-2 px-3 border-bottom text-small d-flex align-items-center" }, aa = { class: "form-check form-check-inline no-min-height" }, la = ["value"], ca = /* @__PURE__ */ M("label", {
   class: "form-check-label",
   for: "outputFormatHtml"
-}, "html", -1), ca = { class: "form-check form-check-inline no-min-height" }, ua = ["value"], da = /* @__PURE__ */ M("label", {
+}, "html", -1), ua = { class: "form-check form-check-inline no-min-height" }, da = ["value"], pa = /* @__PURE__ */ M("label", {
   class: "form-check-label",
   for: "outputFormatJs"
-}, "json", -1), pa = { class: "form-check form-switch no-min-height ms-auto" }, ha = /* @__PURE__ */ M("label", {
+}, "json", -1), ha = { class: "form-check form-switch no-min-height ms-auto" }, ga = /* @__PURE__ */ M("label", {
   class: "form-check-label",
   for: "outputMinify"
-}, "Minify", -1), ga = { class: "panel-body-body tvke-secondary-bg flex-grow-1 text-small p-3" }, fa = {
+}, "Minify", -1), fa = { class: "panel-body-body tvke-secondary-bg flex-grow-1 text-small p-3" }, ma = {
   key: 0,
   class: "text-center fst-italic pt-3"
-}, ma = {
-  key: 1,
-  class: "mb-2"
 }, _a = {
-  key: 0,
+  key: 1,
   class: "mb-2"
 }, va = {
-  key: 1,
-  class: "mb-2"
-}, ya = { class: "output-block d-flex" }, ba = { class: "pre-wrap mb-0 flex-grow-1" }, wa = { class: "d-flex flex-column" }, Ma = /* @__PURE__ */ M("i", { class: "bi bi-copy" }, null, -1), Ia = [
-  Ma
-], ka = /* @__PURE__ */ M("i", { class: "bi bi-file-earmark-arrow-down" }, null, -1), ja = [
-  ka
-], Na = { key: 2 }, xa = {
   key: 0,
   class: "mb-2"
-}, Sa = {
+}, ya = {
   key: 1,
   class: "mb-2"
-}, La = { class: "output-block d-flex" }, Ta = { class: "pre-wrap mb-0 flex-grow-1" }, Da = { class: "d-flex flex-column" }, Ca = /* @__PURE__ */ M("i", { class: "bi bi-copy" }, null, -1), Oa = [
-  Ca
-], Aa = /* @__PURE__ */ M("i", { class: "bi bi-file-earmark-arrow-down" }, null, -1), Ea = [
-  Aa
-], za = /* @__PURE__ */ X({
+}, ba = { class: "output-block d-flex" }, wa = { class: "pre-wrap mb-0 flex-grow-1" }, Ma = { class: "d-flex flex-column" }, Ia = /* @__PURE__ */ M("i", { class: "bi bi-copy" }, null, -1), ka = [
+  Ia
+], ja = /* @__PURE__ */ M("i", { class: "bi bi-file-earmark-arrow-down" }, null, -1), Na = [
+  ja
+], xa = { key: 2 }, Sa = {
+  key: 0,
+  class: "mb-2"
+}, La = {
+  key: 1,
+  class: "mb-2"
+}, Ta = { class: "output-block d-flex" }, Da = { class: "pre-wrap mb-0 flex-grow-1" }, Ca = { class: "d-flex flex-column" }, Oa = /* @__PURE__ */ M("i", { class: "bi bi-copy" }, null, -1), Aa = [
+  Oa
+], Ea = /* @__PURE__ */ M("i", { class: "bi bi-file-earmark-arrow-down" }, null, -1), za = [
+  Ea
+], Pa = /* @__PURE__ */ X({
   __name: "editor-output",
   setup(e) {
     const t = q();
@@ -5295,14 +5318,14 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
       return t.outputFormat === Z.json ? "," : ";";
     }
     function m(w) {
-      const b = t.outputMinified, _ = "<", A = ">", k = [];
+      const b = t.outputMinified, _ = "<", A = ">", j = [];
       let h = c();
-      return h.length && (t.outputFormat === Z.html && (k.push(_ + "style" + A), k.push(":root {")), t.outputFormat === Z.json && k.push("{"), h.forEach((v) => {
-        k.push(
+      return h.length && (t.outputFormat === Z.html && (j.push(_ + "style" + A), j.push(":root {")), t.outputFormat === Z.json && j.push("{"), h.forEach((v) => {
+        j.push(
           f(v.key) + ": " + f(v.value.toString()) + g()
         );
-      }), k.push("}"), t.outputFormat === Z.html && k.push(_ + "/style" + A), b && k.push(`
-`)), k.join(b ? "" : `
+      }), j.push("}"), t.outputFormat === Z.html && j.push(_ + "/style" + A), b && j.push(`
+`)), j.join(b ? "" : `
 `);
     }
     function S() {
@@ -5310,16 +5333,16 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
       return N(w, b);
     }
     function C(w) {
-      const b = t.outputMinified, _ = "<", A = ">", k = [], h = ut(), v = dt(), p = N(h, v);
+      const b = t.outputMinified, _ = "<", A = ">", j = [], h = ut(), v = dt(), p = N(h, v);
       if (t.outputFormat === Z.html) {
         let x = "";
-        p && Object.keys(p).length && (x = ","), k.push(_ + "script" + A), k.push("TockVueKit.renderChat("), k.push('document.getElementById("<TARGET_ELEMENT_ID>"),'), k.push('"<TOCK_BOT_API_URL>"' + x);
+        p && Object.keys(p).length && (x = ","), j.push(_ + "script" + A), j.push("TockVueKit.renderChat("), j.push('document.getElementById("<TARGET_ELEMENT_ID>"),'), j.push('"<TOCK_BOT_API_URL>"' + x);
       }
       if (p) {
         const x = b ? 0 : 2;
-        Object.keys(p).length && k.push(JSON.stringify(p, null, x));
+        Object.keys(p).length && j.push(JSON.stringify(p, null, x));
       }
-      return t.outputFormat === Z.html && (k.push(")"), k.push(_ + "/script" + A)), k.join(b ? "" : `
+      return t.outputFormat === Z.html && (j.push(")"), j.push(_ + "/script" + A)), j.join(b ? "" : `
 `);
     }
     function N(w, b) {
@@ -5328,10 +5351,10 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
         return O(_), _;
     }
     function D(w, b, _ = {}) {
-      if (Lo(w)) {
+      if (So(w)) {
         const A = Object.entries(w);
-        for (let k = 0; k < A.length; k++) {
-          const [h, v] = A[k], p = D(v, b[h]);
+        for (let j = 0; j < A.length; j++) {
+          const [h, v] = A[j], p = D(v, b[h]);
           typeof p == "object" && p.type === "leaf" ? _[h] = p.value : typeof p < "u" && Object.keys(p).length && (_[h] = p);
         }
         return _;
@@ -5339,31 +5362,31 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
         return { type: "leaf", value: w };
     }
     function O(w) {
-      if (Lo(w)) {
+      if (So(w)) {
         const b = Object.entries(w);
         for (let _ = 0; _ < b.length; _++) {
-          const [A, k] = b[_];
-          O(k) || delete w[A];
+          const [A, j] = b[_];
+          O(j) || delete w[A];
         }
         return w;
       } else
         return typeof w < "u";
     }
-    function j(w) {
+    function k(w) {
       In(a(w));
     }
-    function T(w) {
+    function L(w) {
       const b = w === "css" ? "tvk-css.json" : "tvk-options.json", _ = new Blob([JSON.stringify(l(w))], {
         type: "text/plain;charset=utf-8"
       });
-      na.saveAs(_, b);
+      ia.saveAs(_, b);
     }
     return (w, b) => {
       const _ = yt("tooltip");
-      return y(), I("div", ia, [
-        M("div", sa, [
+      return y(), I("div", sa, [
+        M("div", ra, [
           M("div", null, [
-            W((y(), I("div", ra, [
+            W((y(), I("div", aa, [
               W(M("input", {
                 type: "radio",
                 class: "form-check-input",
@@ -5372,14 +5395,14 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
                 value: d(Z).html,
                 "onUpdate:modelValue": b[0] || (b[0] = (A) => d(t).outputFormat = A),
                 onChange: b[1] || (b[1] = (A) => i(d(Z).html))
-              }, null, 40, aa), [
+              }, null, 40, la), [
                 [eo, d(t).outputFormat]
               ]),
-              la
+              ca
             ])), [
               [_, "Format output for html inclusion"]
             ]),
-            W((y(), I("div", ca, [
+            W((y(), I("div", ua, [
               W(M("input", {
                 type: "radio",
                 class: "form-check-input",
@@ -5388,15 +5411,15 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
                 value: d(Z).json,
                 "onUpdate:modelValue": b[2] || (b[2] = (A) => d(t).outputFormat = A),
                 onChange: b[3] || (b[3] = (A) => i(d(Z).json))
-              }, null, 40, ua), [
+              }, null, 40, da), [
                 [eo, d(t).outputFormat]
               ]),
-              da
+              pa
             ])), [
               [_, "Format output for js usage"]
             ])
           ]),
-          W((y(), I("div", pa, [
+          W((y(), I("div", ha, [
             W(M("input", {
               class: "form-check-input",
               type: "checkbox",
@@ -5407,72 +5430,72 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
             }, null, 544), [
               [Ao, d(t).outputMinified]
             ]),
-            ha
+            ga
           ])), [
             [_, "Minify output code"]
           ])
         ]),
-        M("div", ga, [
-          !n.value && !o.value ? (y(), I("div", fa, " All settings set to default ")) : z("", !0),
-          n.value ? (y(), I("div", ma, [
-            d(t).outputFormat === d(Z).html ? (y(), I("label", _a, "Script:")) : z("", !0),
-            d(t).outputFormat === d(Z).json ? (y(), I("label", va, "Options:")) : z("", !0),
-            M("div", ya, [
-              M("pre", ba, [
+        M("div", fa, [
+          !n.value && !o.value ? (y(), I("div", ma, " All settings set to default ")) : z("", !0),
+          n.value ? (y(), I("div", _a, [
+            d(t).outputFormat === d(Z).html ? (y(), I("label", va, "Script:")) : z("", !0),
+            d(t).outputFormat === d(Z).json ? (y(), I("label", ya, "Options:")) : z("", !0),
+            M("div", ba, [
+              M("pre", wa, [
                 M("code", null, V(n.value), 1)
               ]),
-              M("div", wa, [
+              M("div", Ma, [
                 W((y(), I("button", {
                   type: "button",
                   class: "btn btn-link btn-sm pe-0 pt-0",
-                  onClick: b[6] || (b[6] = (A) => j(
+                  onClick: b[6] || (b[6] = (A) => k(
                     "js"
                     /* js */
                   ))
-                }, Ia)), [
+                }, ka)), [
                   [_, "Copy js code"]
                 ]),
                 d(t).outputFormat === d(Z).json ? W((y(), I("button", {
                   key: 0,
                   type: "button",
                   class: "btn btn-link btn-sm pe-0",
-                  onClick: b[7] || (b[7] = (A) => T(
+                  onClick: b[7] || (b[7] = (A) => L(
                     "js"
                     /* js */
                   ))
-                }, ja)), [
+                }, Na)), [
                   [_, "Download js code"]
                 ]) : z("", !0)
               ])
             ])
           ])) : z("", !0),
-          o.value ? (y(), I("div", Na, [
-            d(t).outputFormat === d(Z).html ? (y(), I("label", xa, "Style:")) : z("", !0),
-            d(t).outputFormat === d(Z).json ? (y(), I("label", Sa, "Css variables:")) : z("", !0),
-            M("div", La, [
-              M("pre", Ta, [
+          o.value ? (y(), I("div", xa, [
+            d(t).outputFormat === d(Z).html ? (y(), I("label", Sa, "Style:")) : z("", !0),
+            d(t).outputFormat === d(Z).json ? (y(), I("label", La, "Css variables:")) : z("", !0),
+            M("div", Ta, [
+              M("pre", Da, [
                 M("code", null, V(o.value), 1)
               ]),
-              M("div", Da, [
+              M("div", Ca, [
                 W((y(), I("button", {
                   type: "button",
                   class: "btn btn-link btn-sm pe-0 pt-0",
-                  onClick: b[8] || (b[8] = (A) => j(
+                  onClick: b[8] || (b[8] = (A) => k(
                     "css"
                     /* css */
                   ))
-                }, Oa)), [
+                }, Aa)), [
                   [_, "Copy css code"]
                 ]),
                 d(t).outputFormat === d(Z).json ? W((y(), I("button", {
                   key: 0,
                   type: "button",
                   class: "btn btn-link btn-sm pe-0",
-                  onClick: b[9] || (b[9] = (A) => T(
+                  onClick: b[9] || (b[9] = (A) => L(
                     "css"
                     /* css */
                   ))
-                }, Ea)), [
+                }, za)), [
                   [_, "Download css code"]
                 ]) : z("", !0)
               ])
@@ -5482,17 +5505,17 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
       ]);
     };
   }
-}), Pa = { id: "tock-vue-kit-editor" }, $a = { class: "panel-menu" }, Ya = /* @__PURE__ */ M("i", { class: "bi bi-layout-text-sidebar-reverse" }, null, -1), Ga = [
-  Ya
-], Ra = /* @__PURE__ */ M("i", { class: "bi bi-gear" }, null, -1), Wa = [
-  Ra
-], Za = /* @__PURE__ */ M("i", { class: "bi bi-file-word" }, null, -1), Va = [
-  Za
-], Ba = /* @__PURE__ */ M("i", { class: "bi bi-filetype-css" }, null, -1), Fa = [
-  Ba
-], Ua = /* @__PURE__ */ M("i", { class: "bi bi-floppy" }, null, -1), Ha = [
-  Ua
-], Qa = { class: "panel-body flex-grow-1 position-relative" }, Xa = /* @__PURE__ */ X({
+}), $a = { id: "tock-vue-kit-editor" }, Ya = { class: "panel-menu" }, Ga = /* @__PURE__ */ M("i", { class: "bi bi-layout-text-sidebar-reverse" }, null, -1), Ra = [
+  Ga
+], Wa = /* @__PURE__ */ M("i", { class: "bi bi-gear" }, null, -1), Za = [
+  Wa
+], Va = /* @__PURE__ */ M("i", { class: "bi bi-file-word" }, null, -1), Ba = [
+  Va
+], Fa = /* @__PURE__ */ M("i", { class: "bi bi-filetype-css" }, null, -1), Ua = [
+  Fa
+], Ha = /* @__PURE__ */ M("i", { class: "bi bi-floppy" }, null, -1), Qa = [
+  Ha
+], Ja = { class: "panel-body flex-grow-1 position-relative" }, qa = /* @__PURE__ */ X({
   __name: "editor",
   props: {
     height: { default: "100vh" }
@@ -5504,18 +5527,18 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
       o.refreshEditorPanels();
     }), (n, i) => {
       const s = yt("tooltip");
-      return y(), I("div", Pa, [
+      return y(), I("div", $a, [
         M("div", {
           class: "panel-wrapper d-flex",
           style: Ge({ height: n.height })
         }, [
-          M("div", $a, [
+          M("div", Ya, [
             W((y(), I("div", {
               class: Q(["panel-menu-entry", {
                 active: d(o).editorPanel === d(U).templates
               }]),
               onClick: i[0] || (i[0] = (r) => d(o).setEditorPanel(d(U).templates))
-            }, Ga, 2)), [
+            }, Ra, 2)), [
               [s, { content: "Templates", placement: "right" }]
             ]),
             W((y(), I("div", {
@@ -5523,7 +5546,7 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
                 active: d(o).editorPanel === d(U).preferences
               }]),
               onClick: i[1] || (i[1] = (r) => d(o).setEditorPanel(d(U).preferences))
-            }, Wa, 2)), [
+            }, Za, 2)), [
               [s, { content: "Preferences", placement: "right" }]
             ]),
             W((y(), I("div", {
@@ -5531,7 +5554,7 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
                 active: d(o).editorPanel === d(U).wording
               }]),
               onClick: i[2] || (i[2] = (r) => d(o).setEditorPanel(d(U).wording))
-            }, Va, 2)), [
+            }, Ba, 2)), [
               [s, { content: "Wording", placement: "right" }]
             ]),
             W((y(), I("div", {
@@ -5539,7 +5562,7 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
                 active: d(o).editorPanel === d(U).styling
               }]),
               onClick: i[3] || (i[3] = (r) => d(o).setEditorPanel(d(U).styling))
-            }, Fa, 2)), [
+            }, Ua, 2)), [
               [s, { content: "Styling", placement: "right" }]
             ]),
             W((y(), I("div", {
@@ -5547,20 +5570,20 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
                 active: d(o).editorPanel === d(U).output
               }]),
               onClick: i[4] || (i[4] = (r) => d(o).setEditorPanel(d(U).output))
-            }, Ha, 2)), [
+            }, Qa, 2)), [
               [s, { content: "Output", placement: "right" }]
             ])
           ]),
-          M("div", Qa, [
-            d(o).editorPanel === d(U).templates ? (y(), J(Os, { key: 0 })) : z("", !0),
-            d(o).editorPanel === d(U).styling ? (y(), J(sr, { key: 1 })) : z("", !0),
-            d(o).editorPanel === d(U).preferences ? (y(), J(Kr, {
+          M("div", Ja, [
+            d(o).editorPanel === d(U).templates ? (y(), J(As, { key: 0 })) : z("", !0),
+            d(o).editorPanel === d(U).styling ? (y(), J(rr, { key: 1 })) : z("", !0),
+            d(o).editorPanel === d(U).preferences ? (y(), J(Xr, {
               key: d(o).currentCustomizationName
             })) : z("", !0),
-            d(o).editorPanel === d(U).wording ? (y(), J(oa, {
+            d(o).editorPanel === d(U).wording ? (y(), J(na, {
               key: d(o).currentCustomizationName
             })) : z("", !0),
-            d(o).editorPanel === d(U).output ? (y(), J(za, {
+            d(o).editorPanel === d(U).output ? (y(), J(Pa, {
               key: d(o).currentCustomizationName
             })) : z("", !0)
           ])
@@ -5570,5 +5593,5 @@ const ia = { class: "panel-body-wrapper d-flex flex-column" }, sa = { class: "pa
   }
 });
 export {
-  Xa as TvkEditor
+  qa as TvkEditor
 };
