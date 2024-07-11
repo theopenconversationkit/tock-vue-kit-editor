@@ -178,33 +178,14 @@ function normalizePaste(event: ClipboardEvent) {
 function keyDownWatch(event: KeyboardEvent) {
   const target = event.target as HTMLInputElement;
   if (["ArrowUp", "ArrowDown"].includes(event.key)) {
-    prevent(event);
+    const rawValue = props.variable!.value.toString().trim();
 
-    const rawValue = props.variable!.value.toString();
-
-    const values = rawValue.split(" ");
-
-    let selection = document.getSelection();
-    let cursorOffset: number = 0;
-    if (selection) {
-      cursorOffset = selection.getRangeAt(0).startOffset;
-    }
-
-    let currentValue: string;
-    let currentValueIndex: number;
-    let count = 0;
-    for (let i = 0; i < values.length; i++) {
-      if (cursorOffset <= count + values[i].length) {
-        currentValue = values[i];
-        currentValueIndex = i;
-        break;
-      }
-      count += values[i].length + 1;
-    }
-
-    var isNumericValue = /^\d*\.?\d+(?:em|rem|px|%|vh|vw|pt)?/g;
-    if (isNumericValue.test(currentValue!)) {
-      const numValue = CSSNumericValue.parse(currentValue!);
+    var isNumericValue = /^-?\d*\.?\d+(?:em|rem|px|%|vh|vw|pt)?/g;
+    console.clear();
+    if (rawValue.split(" ").length < 2 && isNumericValue.test(rawValue)) {
+      prevent(event);
+      const numValue = CSSNumericValue.parse(rawValue);
+      console.log(numValue);
       let factor = 1;
       if (event.ctrlKey) factor /= 10;
       if (event.shiftKey) factor *= 10;
@@ -218,16 +199,10 @@ function keyDownWatch(event: KeyboardEvent) {
         numValue.value -= factor;
       }
 
-      values[currentValueIndex!] = numValue.toString();
-      const newValues = values.join(" ");
+      const newValue = numValue.toString();
 
-      updateVariable(newValues);
-
-      valueStringCopy = newValues;
-
-      setTimeout(() => {
-        setInputSelectionRange(cursorOffset, cursorOffset);
-      });
+      updateVariable(newValue);
+      valueStringCopy = newValue;
     }
   }
 }
