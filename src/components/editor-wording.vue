@@ -10,10 +10,6 @@ let optionsModel = ref<object>();
 let groups = ref<string[]>([]);
 let currentOptions = ref<object>();
 
-// onMounted(() => {
-//   init();
-// });
-
 mainStore.$onAction(({ name, store, args, after }) => {
   if (name === "refreshEditorPanels") {
     after(() => {
@@ -54,10 +50,6 @@ function init() {
   left: 0;
   right: 0;
 }
-
-// #header {
-//   box-shadow: 0px 0px 7px #0000007c;
-// }
 
 #body {
   &::-webkit-scrollbar {

@@ -55,6 +55,7 @@ export const templates: Template[] = [
       "--tvk_message_body_bot_radius-bottom-left": "0",
       "--tvk_message_body_bot_radius-top-left":
         "var(--tvk_message_body_radius)",
+      "--tvk_message_body_max-width": "calc(100% - 2em)",
       "--tvk_message_body_user_radius-bottom-right": "0",
       "--tvk_message_body_user_radius-top-right":
         "var(--tvk_message_body_radius)",
@@ -322,6 +323,7 @@ export const templates: Template[] = [
       "--tvk_message_answer_user_flex-direction": "row",
       "--tvk_message_answer_user_justify-content": "start",
       "--tvk_message_answer_user_padding": "2em",
+      "--tvk_message_body_max-width": "95%",
       "--tvk_message_body_bot_background": "unset",
       "--tvk_message_body_user_background": "unset",
       "--tvk_message_header_avatar_padding": "0em",
@@ -429,6 +431,7 @@ export const templates: Template[] = [
       "--tvk_message_answer_user_flex-direction": "row",
       "--tvk_message_body_grow": "1",
       "--tvk_message_body_padding": "1em",
+      "--tvk_message_body_max-width": "calc(100% - 3.7em)",
       "--tvk_message_body_user_radius-top-left": "0",
       "--tvk_message_body_user_radius-top-right":
         "var(--tvk_message_body_radius)",

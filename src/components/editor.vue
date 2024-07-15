@@ -7,6 +7,7 @@ import editorTemplates from "./editor-templates.vue";
 import editorVariables from "./editor-variables.vue";
 import editorPreferences from "./editor-preferences.vue";
 import editorWording from "./editor-wording.vue";
+import editorTest from "./editor-test.vue";
 import editorOutput from "./editor-output.vue";
 
 import { getCurrentInstance, ref } from "vue";
@@ -85,6 +86,17 @@ onMounted(() => {
         <div
           class="panel-menu-entry"
           :class="{
+            active: editorStore.editorPanel === EditorPanels.test,
+          }"
+          v-tooltip="{ content: 'Test', placement: 'right' }"
+          @click="editorStore.setEditorPanel(EditorPanels.test)"
+        >
+          <i class="bi bi-play-circle"></i>
+        </div>
+
+        <div
+          class="panel-menu-entry"
+          :class="{
             active: editorStore.editorPanel === EditorPanels.output,
           }"
           v-tooltip="{ content: 'Output', placement: 'right' }"
@@ -103,15 +115,15 @@ onMounted(() => {
         ></editorVariables>
         <editorPreferences
           v-if="editorStore.editorPanel === EditorPanels.preferences"
-          :key="editorStore.currentCustomizationName"
         ></editorPreferences>
         <editorWording
           v-if="editorStore.editorPanel === EditorPanels.wording"
-          :key="editorStore.currentCustomizationName"
         ></editorWording>
+        <editorTest
+          v-if="editorStore.editorPanel === EditorPanels.test"
+        ></editorTest>
         <editorOutput
           v-if="editorStore.editorPanel === EditorPanels.output"
-          :key="editorStore.currentCustomizationName"
         ></editorOutput>
       </div>
     </div>

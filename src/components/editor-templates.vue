@@ -129,4 +129,3 @@ function applyTemplate(template: Template) {
 </template>
 
 <style lang="scss" scoped></style>
-../utils/templates

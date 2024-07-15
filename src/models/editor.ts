@@ -3,6 +3,7 @@ export enum EditorPanels {
   styling = "styling",
   preferences = "preferences",
   wording = "wording",
+  test = "test",
   output = "output",
 }
 
