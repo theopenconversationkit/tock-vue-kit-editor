@@ -28,7 +28,7 @@
     "pinia": "^2.1.7"
   },
   "peerDependencies": {
-    "tock-vue-kit": "file:../tock-vue-kit",
+    "tock-vue-kit": "^0.3.3",
     "vue": "^3.4.15"
   },
   "devDependencies": {
