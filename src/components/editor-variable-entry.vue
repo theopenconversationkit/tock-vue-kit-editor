@@ -109,8 +109,8 @@ function jumpTo(event: Event, varKey: string) {
 let valueStringCopy: string;
 
 function edit() {
-  edition.value = true;
   valueStringCopy = props.variable!.value.toString();
+  edition.value = true;
 }
 function unedit() {
   edition.value = false;
@@ -176,33 +176,35 @@ function normalizePaste(event: ClipboardEvent) {
 }
 
 function keyDownWatch(event: KeyboardEvent) {
-  const target = event.target as HTMLInputElement;
-  if (["ArrowUp", "ArrowDown"].includes(event.key)) {
-    const rawValue = props.variable!.value.toString().trim();
+  if (typeof CSSNumericValue !== "undefined") {
+    const target = event.target as HTMLInputElement;
+    if (["ArrowUp", "ArrowDown"].includes(event.key)) {
+      const rawValue = props.variable!.value.toString().trim();
 
-    var isNumericValue = /^-?\d*\.?\d+(?:em|rem|px|%|vh|vw|pt)?/g;
-    console.clear();
-    if (rawValue.split(" ").length < 2 && isNumericValue.test(rawValue)) {
-      prevent(event);
-      const numValue = CSSNumericValue.parse(rawValue);
-      console.log(numValue);
-      let factor = 1;
-      if (event.ctrlKey) factor /= 10;
-      if (event.shiftKey) factor *= 10;
+      var isNumericValue = /^-?\d*\.?\d+(?:em|rem|px|%|vh|vw|pt)?/g;
 
-      if (event.key === "ArrowUp") {
-        // @ts-ignore
-        numValue.value += factor;
+      if (rawValue.split(" ").length < 2 && isNumericValue.test(rawValue)) {
+        prevent(event);
+        const numValue = CSSNumericValue.parse(rawValue);
+
+        let factor = 1;
+        if (event.ctrlKey) factor /= 10;
+        if (event.shiftKey) factor *= 10;
+
+        if (event.key === "ArrowUp") {
+          // @ts-ignore
+          numValue.value += factor;
+        }
+        if (event.key === "ArrowDown") {
+          // @ts-ignore
+          numValue.value -= factor;
+        }
+
+        const newValue = numValue.toString();
+
+        updateVariable(newValue);
+        valueStringCopy = newValue;
       }
-      if (event.key === "ArrowDown") {
-        // @ts-ignore
-        numValue.value -= factor;
-      }
-
-      const newValue = numValue.toString();
-
-      updateVariable(newValue);
-      valueStringCopy = newValue;
     }
   }
 }

@@ -43,7 +43,7 @@ function init(): void {
       <editorVariablesGroup
         :variables="variables"
         :path="[mainStore.stylingCategory]"
-        :key="mainStore.currentCustomizationName + mainStore.stylingCategory"
+        :key="mainStore.stylingCategory"
       ></editorVariablesGroup>
     </div>
   </div>

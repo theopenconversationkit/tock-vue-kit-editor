@@ -17,55 +17,79 @@ export function parseVarKey(varKey: string) {
   };
 }
 
+function collectVariable(
+  variables: CssVariable[],
+  isPristine: boolean,
+  map: string[]
+) {
+  const varKey: string = map[0];
+  const varValue = map[1];
+  const parsing = parseVarKey(varKey);
+
+  let existing = variables.find((v) => v.key === varKey);
+  if (existing) {
+    if (isPristine) {
+      existing.initialValue = varValue;
+    } else {
+      existing.value = varValue;
+    }
+  } else {
+    variables.push({
+      key: varKey,
+      value: varValue,
+      initialValue: varValue,
+      categories: parsing.categories,
+      name: parsing.name,
+    });
+  }
+}
+
 export function grabVariables() {
   const variables: CssVariable[] = [];
-  Array.from(document.styleSheets).forEach((sheet) => {
-    // if (!sheet.href) {
-      Array.from(sheet.cssRules).forEach((rule) => {
-        if (rule instanceof CSSStyleRule) {
-          if (rule.selectorText === ":root") {
-            let isPristine = !!rule.style.getPropertyValue(
-              "--tvk--default-sheet"
-            );
 
+  Array.from(document.styleSheets).forEach((sheet) => {
+    Array.from(sheet.cssRules).forEach((rule) => {
+      if (rule instanceof CSSStyleRule) {
+        if (rule.selectorText === ":root") {
+          let isPristine = !!rule.style.getPropertyValue(
+            "--tvk--default-sheet"
+          );
+
+          if (rule.styleMap) {
+            // All browsers except Firefox
             Array.from(rule.styleMap as any).forEach((map: any) => {
               if (map[0].startsWith(tvkPrefix)) {
-                const varKey: string = map[0];
-                const varValue = map[1];
-                const parsing = parseVarKey(varKey);
-
-                let existing = variables.find((v) => v.key === varKey);
-                if (existing) {
-                  if (isPristine) {
-                    existing.initialValue = varValue;
-                  } else {
-                    existing.value = varValue;
-                  }
-                } else {
-                  variables.push({
-                    key: varKey,
-                    value: varValue,
-                    initialValue: varValue,
-                    categories: parsing.categories,
-                    name: parsing.name,
+                collectVariable(variables, isPristine, map);
+              }
+            });
+          } else {
+            // Firefox workaround
+            Array.from(rule.style as any).forEach((style: any) => {
+              if (style.startsWith(tvkPrefix)) {
+                let rawContent = /\{(.*?)\}/.exec(rule.cssText);
+                if (rawContent) {
+                  let rawTxt = rawContent[1];
+                  let rawVars = rawTxt.split(";");
+                  rawVars.forEach((rawVar) => {
+                    const map = rawVar.trim().split(":");
+                    if (map[0].startsWith(tvkPrefix)) {
+                      map[1] = map[1].trim();
+                      collectVariable(variables, isPristine, map);
+                    }
                   });
                 }
               }
             });
           }
         }
-      });
-    // }
+      }
+    });
   });
 
   let root = document.documentElement;
   Array.from(root.style).forEach((key) => {
     const target = variables.find((v) => v.key === key);
     if (target) target.value = root.style.getPropertyValue(key);
-    // else
-    //   console.info(
-    //     `Variable key "${key}" doesn't exist in styleSheets variables declaration`
-    //   );
   });
 
   variables.sort((a, b) => {

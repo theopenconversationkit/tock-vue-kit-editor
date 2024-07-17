@@ -5,7 +5,6 @@ import { parseVarKey } from "../utils/variables";
 import { getCurrentTheme } from "../utils/misc";
 
 export const useEditorStore = defineStore("editorStore", () => {
-  const currentCustomizationName: Ref<string | undefined> = ref(undefined);
   const editorPanel: Ref<EditorPanels> = ref(EditorPanels.templates);
   const stylingCategory: Ref<string> = ref("colors");
   const stylingTargetedVar: Ref<string | undefined> = ref(undefined);
@@ -15,14 +14,6 @@ export const useEditorStore = defineStore("editorStore", () => {
 
   function refreshEditorPanels() {
     // empty action watched by editor components to refresh data
-  }
-
-  function setCurrentCustomizationName(name: string) {
-    currentCustomizationName.value = name;
-    setTimeout(() => {
-      const mainStoreInstance = useEditorStore();
-      mainStoreInstance.refreshEditorPanels();
-    });
   }
 
   function setEditorPanel(panel: EditorPanels) {
@@ -90,14 +81,12 @@ export const useEditorStore = defineStore("editorStore", () => {
   }
 
   return {
-    currentCustomizationName,
     editorPanel,
     stylingCategory,
     stylingTargetedVar,
     outputFormat,
     outputMinified,
     templateDirtyState,
-    setCurrentCustomizationName,
     refreshEditorPanels,
     setEditorPanel,
     setStylingCategory,
