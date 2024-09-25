@@ -129,7 +129,7 @@ export const testMessages: TestMessage[] = [
         file: {
           url: getRandomPhotoUrl(),
           name: "image1.jpeg",
-          type: "file",
+          type: "image",
         },
         buttons: [
           {
@@ -148,7 +148,7 @@ export const testMessages: TestMessage[] = [
         file: {
           url: getRandomPhotoUrl(),
           name: "image2.jpeg",
-          type: "file",
+          type: "image",
         },
         buttons: [
           {

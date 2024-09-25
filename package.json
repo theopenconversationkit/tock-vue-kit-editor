@@ -1,6 +1,6 @@
 {
   "name": "tock-vue-kit-editor",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Vue 3 wysiwyg editor for the Tock Vue Kit",
   "type": "module",
   "files": [
@@ -28,7 +28,7 @@
     "pinia": "^2.1.7"
   },
   "peerDependencies": {
-    "tock-vue-kit": "^0.3.3",
+    "tock-vue-kit": "^0.3.7",
     "vue": "^3.4.15"
   },
   "devDependencies": {

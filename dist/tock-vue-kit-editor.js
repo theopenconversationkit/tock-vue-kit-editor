@@ -598,8 +598,7 @@ function Me(e) {
 }
 let et;
 function Bo() {
-  if (et)
-    return et;
+  if (et) return et;
   const e = navigator.userAgentData;
   return e && Array.isArray(e.brands) ? (et = e.brands.map((t) => t.brand + "/" + t.version).join(" "), et) : navigator.userAgent;
 }
@@ -641,8 +640,7 @@ function Ho(e) {
 const Qo = { x: 1, y: 1 };
 function Ee(e) {
   const t = Ho(e);
-  if (!de(t))
-    return Qo;
+  if (!de(t)) return Qo;
   const o = t.getBoundingClientRect(), { width: n, height: i, fallback: s } = Vo(t);
   let r = (s ? mt(o.width) : o.width) / n, a = (s ? mt(o.height) : o.height) / i;
   return r && Number.isFinite(r) || (r = 1), a && Number.isFinite(a) || (a = 1), { x: r, y: a };
@@ -675,8 +673,7 @@ function Jo(e) {
   return He(we(e)).left + kt(e).scrollLeft;
 }
 function Qe(e) {
-  if (Me(e) === "html")
-    return e;
+  if (Me(e) === "html") return e;
   const t = e.assignedSlot || e.parentNode || lo(e) && e.host || we(e);
   return lo(t) ? t.host : t;
 }
@@ -716,13 +713,11 @@ function uo(e) {
 function po(e) {
   const t = ne(e);
   let o = uo(e);
-  for (; o && ui(o) && ue(o).position === "static"; )
-    o = uo(o);
+  for (; o && ui(o) && ue(o).position === "static"; ) o = uo(o);
   return o && (Me(o) === "html" || Me(o) === "body" && ue(o).position === "static" && !Et(o)) ? t : o || function(n) {
     let i = Qe(n);
     for (; de(i) && !Ht(i); ) {
-      if (Et(i))
-        return i;
+      if (Et(i)) return i;
       i = Qe(i);
     }
     return null;
@@ -732,20 +727,17 @@ function di(e, t, o) {
   const n = de(t), i = we(t), s = He(e, !0, o === "fixed", t);
   let r = { scrollLeft: 0, scrollTop: 0 };
   const a = { x: 0, y: 0 };
-  if (n || !n && o !== "fixed")
-    if ((Me(t) !== "body" || It(i)) && (r = kt(t)), de(t)) {
-      const l = He(t, !0);
-      a.x = l.x + t.clientLeft, a.y = l.y + t.clientTop;
-    } else
-      i && (a.x = Jo(i));
+  if (n || !n && o !== "fixed") if ((Me(t) !== "body" || It(i)) && (r = kt(t)), de(t)) {
+    const l = He(t, !0);
+    a.x = l.x + t.clientLeft, a.y = l.y + t.clientTop;
+  } else i && (a.x = Jo(i));
   return { x: s.left + r.scrollLeft - a.x, y: s.top + r.scrollTop - a.y, width: s.width, height: s.height };
 }
 const pi = { getClippingRect: function(e) {
   let { element: t, boundary: o, rootBoundary: n, strategy: i } = e;
   const s = o === "clippingAncestors" ? function(c, u) {
     const _ = u.get(c);
-    if (_)
-      return _;
+    if (_) return _;
     let g = _t(c).filter((D) => be(D) && Me(D) !== "body"), m = null;
     const k = ue(c).position === "fixed";
     let L = k ? Qe(c) : c;
@@ -762,8 +754,7 @@ const pi = { getClippingRect: function(e) {
 }, convertOffsetParentRelativeRectToViewportRelativeRect: function(e) {
   let { rect: t, offsetParent: o, strategy: n } = e;
   const i = de(o), s = we(o);
-  if (o === s)
-    return t;
+  if (o === s) return t;
   let r = { scrollLeft: 0, scrollTop: 0 }, a = { x: 1, y: 1 };
   const l = { x: 0, y: 0 };
   if ((i || !i && n !== "fixed") && ((Me(o) !== "body" || It(s)) && (r = kt(o)), de(o))) {
@@ -3180,12 +3171,11 @@ function Wt(e, t, o = {}, n, i, s) {
     else if (typeof y == "function") {
       const p = process.env.NODE_ENV !== "production" && i ? y : S(h, y);
       j[h] = p, process.env.NODE_ENV !== "production" && (M.actions[h] = y), a.actions[h] = y;
-    } else
-      process.env.NODE_ENV !== "production" && So(y) && (M.getters[h] = s ? (
-        // @ts-expect-error
-        o.getters[h]
-      ) : y, xt && (j._getters || // @ts-expect-error: same
-      (j._getters = xe([]))).push(h));
+    } else process.env.NODE_ENV !== "production" && So(y) && (M.getters[h] = s ? (
+      // @ts-expect-error
+      o.getters[h]
+    ) : y, xt && (j._getters || // @ts-expect-error: same
+    (j._getters = xe([]))).push(h));
   }
   if (oe(v, j), oe(bt(v), j), Object.defineProperty(v, "$state", {
     get: () => process.env.NODE_ENV !== "production" && i ? L.value : n.state.value[e],
@@ -3556,8 +3546,7 @@ function ks(e) {
 }
 function xn(e, t, o = !0) {
   for (let n = 0; n < e.length; n++)
-    if (o && t.length !== e.length || t[n] !== e[n])
-      return !1;
+    if (o && t.length !== e.length || t[n] !== e[n]) return !1;
   return !0;
 }
 function js(e, t) {
@@ -4316,8 +4305,7 @@ const te = Is("editorStore", () => {
       });
     }
     function r(a) {
-      if (a._confirmTemplateChangeWarning)
-        return;
+      if (a._confirmTemplateChangeWarning) return;
       o.value.forEach((u) => {
         u.active = !1;
       }), a.active = !0;
@@ -5266,7 +5254,7 @@ const la = [
         file: {
           url: me(),
           name: "image1.jpeg",
-          type: "file"
+          type: "image"
         },
         buttons: [
           {
@@ -5285,7 +5273,7 @@ const la = [
         file: {
           url: me(),
           name: "image2.jpeg",
-          type: "file"
+          type: "image"
         },
         buttons: [
           {
@@ -5515,10 +5503,8 @@ var Ge = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
         s(m);
       }, 0));
     } : "msSaveOrOpenBlob" in navigator ? function(c, u, _) {
-      if (u = u || c.name || "download", typeof c != "string")
-        navigator.msSaveOrOpenBlob(o(c, _), u);
-      else if (i(c))
-        n(c, u, _);
+      if (u = u || c.name || "download", typeof c != "string") navigator.msSaveOrOpenBlob(o(c, _), u);
+      else if (i(c)) n(c, u, _);
       else {
         var g = document.createElement("a");
         g.href = c, g.target = "_blank", setTimeout(function() {
@@ -5526,8 +5512,7 @@ var Ge = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
         });
       }
     } : function(c, u, _, g) {
-      if (g = g || open("", "_blank"), g && (g.document.title = g.document.body.innerText = "downloading..."), typeof c == "string")
-        return n(c, u, _);
+      if (g = g || open("", "_blank"), g && (g.document.title = g.document.body.innerText = "downloading..."), typeof c == "string") return n(c, u, _);
       var m = c.type === "application/octet-stream", k = /constructor/i.test(r.HTMLElement) || r.safari, L = /CriOS\/[\d]+/.test(navigator.userAgent);
       if ((L || m && k || a) && typeof FileReader < "u") {
         var D = new FileReader();
