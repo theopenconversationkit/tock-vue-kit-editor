@@ -1,7 +1,10 @@
 import type { Template } from "../models/template";
 import { personSvg, robotSvg } from "./images";
 
-const tockEndpointUrl = "https://demo-bot.tock.ai/io/tock/tockbot/web";
+const tockEndpointUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8080/io/01/cmb/web"
+    : "https://demo-bot.tock.ai/io/tock/tockbot/web";
 
 export const templates: Template[] = [
   {

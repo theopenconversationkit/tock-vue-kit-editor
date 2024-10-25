@@ -1,2 +1,1 @@
-import TvkEditor from "./components/editor.vue";
-export { TvkEditor };
+export * from './tock-vue-kit-editor/src/index'
