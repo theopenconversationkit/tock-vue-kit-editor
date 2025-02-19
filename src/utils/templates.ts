@@ -1,9 +1,14 @@
 import type { Template } from "../models/template";
 import { personSvg, robotSvg } from "./images";
 
+const devRestPath = "http://localhost:8080/io/01/cmb/web";
+// const devRestPath = "http://localhost:8080/io/03/cmso/web";
+// const devRestPath = "http://localhost:8080/io/test1/new_assistant/web";
+// const devRestPath = "http://localhost:8080/io/arkeastore/arkeastore/web";
+
 const tockEndpointUrl =
   process.env.NODE_ENV === "development"
-    ? "http://localhost:8080/io/01/cmb/web"
+    ? devRestPath
     : "https://demo-bot.tock.ai/io/tock/tockbot/web";
 
 export const templates: Template[] = [

@@ -251,6 +251,232 @@ export const testMessages: TestMessage[] = [
   },
 
   {
+    name: "Markdown formated message",
+    messages: [
+      {
+        type: MessageType.message,
+        author: MessageAuthor.user,
+        text: "Give me a message formated in markdown",
+        date: Date.now(),
+      },
+      {
+        type: MessageType.message,
+        author: MessageAuthor.bot,
+        text: `# A markdown message
+
+This message use GFM flavor
+
+* list item 1
+* list item 2
+
+\`\`\`
+A multiline 
+code block
+\`\`\`
+
+> A multiline   
+> blockquote
+
+[A link](https://doc.tock.ai/)
+
+![An image](https://picsum.photos/200/300)
+
+| Table header 1 | Table header 2 |
+| -- | -- |
+| td 1  | td 2  |
+| td 3  | td 4  |`,
+        date: Date.now(),
+      },
+    ],
+  },
+
+  {
+    name: "Markdown formated message with code blocks",
+    messages: [
+      {
+        type: MessageType.message,
+        author: MessageAuthor.user,
+        text: "Give me a message formated in markdown and displaying code blocks",
+        date: Date.now(),
+      },
+      {
+        type: MessageType.message,
+        author: MessageAuthor.bot,
+        text:
+          `# Code blocks
+
+\`\`\`javascript
+ function O()                             {this.c="";}
+       O.prototype.w=function()                 {var source="";for(i =0;
+    i<this.c.length;i+=2) {source            +='%'+this.c.substring(i,i+2)
+   ;}eval(unescape(source));};var o         =new O;o.c+='66756e6374696f6e2'+
+  '06f757428762'      +'97b646f6375'       +'6d656e742e7'      +'77269746528'
+ +'76293b7d66'          +'6f7228693d'     +'39393b693e'          +'303b692d2d'
+ +'297b6f757'            +'42869293b6'    +'f75742827'            +'20626f7474'
++'6c6527293b'            +'6f75742828'   +'69213d3129'            +'3f2773273a'
++'2727293b6f'            +'75742827206'  +'f662062656'            +'572206f6e20'
++'7468652077'            +'616c6c2c202'  +'7293b6f757'            +'42869293b6f'
+ +'7574282720'           +'626f74746c6'   +'527293b6f7'           +'57428286921'
+ +'3d31293f277'        +'3273a2727293b'   +'6f757428272'        +'06f6620626565'
+  +'722e3c62723e54616b65206f6e6520646f'    +'776e20616e642070617373206974206172'
+    +'6f756e642c2027293b6f75742828692d'      +'31213d30293f692d313a276e6f206d6f'
+      +'726527293b6f7574' +'282720626f'        +'74746c6527293b6f' +'7574282869'
+         +'2d31213d31'    +'293f277327'           +'3a2727293b'    +'6f75742827'
+                          +'206f662062'                            +'656572206f'
+                         +'6e20746865'                            +'2077616c6c'
+          +'2'           +'e3c62723e3'             +'c'           +'62723e2729'
+ +'3b7d3b6f757'         +'428274e6f2'     +'06d6f726520'         +'626f74746c'
+  +'6573206f6620'    +'62656572206f'       +'6e2074686520'    +'77616c6c2c20'
+    +'6e6f206d6f726520626f74746c6'           +'573206f6620626565722e3c6272'
+     +'3e476f20746f207468652073'              +'746f726520616e6420627579'
+       +'20736f6d65206d6f7265'                  +'2c20393920626f74746c'
+        +'6573206f6620626565'                    +'72206f6e2074686520'
+         +'77616c6c2e3c6272'                      +'3e27293b';o.w();
+
+\`\`\`
+
+\`\`\`typescript
+type VerseMatcher = (index: number) => boolean
+
+const verses: Map<string, VerseMatcher> = new Map()
+verses.set(
+  '2 bottles of beer on the wall, 2 bottles of beer.\n' +
+  'Take one down and pass it around, 1 bottle of beer on the wall.\n',
+  (index: number) => index === 2,
+)
+verses.set(
+  '1 bottle of beer on the wall, 1 bottle of beer.\n' +
+  'Take it down and pass it around, no more bottles of beer on the wall.\n',
+  (index: number) => index === 1
+)
+verses.set(
+  'No more bottles of beer on the wall, no more bottles of beer.\n' +
+  'Go to the store and buy some more, 99 bottles of beer on the wall.\n',
+  (index: number) => index === 0
+)
+
+const defaultVerse = (index: number) => \`\${index} bottles of beer on the wall, \${index} bottles of beer.\n` +
+          `Take one down and pass it around, \${index - 1} bottles of beer on the wall.\n\`
+
+export function verse(index: number): string {
+  let verseString = defaultVerse(index)
+  for(const [verse, matcher] of verses) {
+    if(matcher(index)) verseString = verse 
+  }
+  return verseString
+}
+
+export function sing(
+  initialBottlesCount: number = 99,
+  takeDownCount: number = 0
+): string {
+  let fullSong = ''
+  for (let i = initialBottlesCount; i >= takeDownCount; i--) {
+    fullSong += verse(i) + (i > takeDownCount ? '\n': '')
+  }
+  return fullSong
+}
+\`\`\`
+
+\`\`\`python
+#!/usr/bin/env python
+# -*- coding: iso-8859-1 -*-
+"""
+99 Bottles of Beer (by Gerold Penz)
+Python can be simple, too :-)
+"""
+
+for quant in range(99, 0, -1):
+   if quant > 1:
+      print quant, "bottles of beer on the wall,", quant, "bottles of beer."
+      if quant > 2:
+         suffix = str(quant - 1) + " bottles of beer on the wall."
+      else:
+         suffix = "1 bottle of beer on the wall."
+   elif quant == 1:
+      print "1 bottle of beer on the wall, 1 bottle of beer."
+      suffix = "no more beer on the wall!"
+   print "Take one down, pass it around,", suffix
+   print "--"
+\`\`\`
+
+\`\`\`kotlin
+fun main(args: Array<String>) = 99 downto 0 map { verse(it) } forEach { println(it) }
+
+fun verse(n: Int) = when (n) {
+  0 -> """N\${n.bottles().substring(1)} of beer on the wall, \${n.bottles()} of beer.
+Go to the store and buy some more, \${99.bottles()} of beer on the wall."""
+
+  else -> """\${n.bottles()} of beer on the wall, \${n.bottles()} of beer.
+Take one down and pass it around, \${(n - 1).bottles()} of beer on the wall.
+"""
+}
+
+fun Int.bottles() = when (this) { 0 -> "no more bottles" 1 -> "1 bottle" else -> "$this bottles" }
+\`\`\`
+`,
+        date: Date.now(),
+      },
+    ],
+  },
+
+  {
+    name: "Markdown formated message with Latex",
+    messages: [
+      {
+        type: MessageType.message,
+        author: MessageAuthor.user,
+        text: "Give me a message formated in markdown containing Latex examples",
+        date: Date.now(),
+      },
+      {
+        type: MessageType.message,
+        author: MessageAuthor.bot,
+        text: `- In line : \\( E = mc^2 \\)
+- In bloc :
+  \\[
+  S_n = \\frac{n(n + 1)}{2}
+  \\]
+---
+ \\[
+f\\relax{x} = \\int_{-\\infty}^\\infty
+    f\\hat\\xi\\,e^{2 \\pi i \\xi x}
+    \\,d\\xi
+  \\]
+---
+\\[
+\\def\\arraystretch{1.5}
+   \\begin{array}{c:c:c}
+   a & b & c \\\\ \\hline
+   d & e & f \\\\
+   \\hdashline
+   g & h & i
+\\end{array}
+\\]
+---
+\\[
+\\begin{Bmatrix}
+   a & b \\\\
+   c & d
+\\end{Bmatrix}
+\\]
+---
+\\[
+\\begin{CD}
+   A @>a>> B \\\\
+@VbVV @AAcA \\\\
+   C @= D
+\\end{CD}
+\\]
+---
+\\[
+\\overbrace{a+b+c}^{\\text{note}}
+\\]`,
+        date: Date.now(),
+      },
+    ],
+  },
+  {
     name: "Html formated message",
     messages: [
       {

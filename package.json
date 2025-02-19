@@ -1,12 +1,12 @@
 {
   "name": "tock-vue-kit-editor",
-  "version": "0.0.13",
+  "version": "0.1.0",
   "description": "Vue 3 wysiwyg editor for the Tock Vue Kit",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/tock-vue-kit-editor.umd.cjs",
+  "main": "./dist/tock-vue-kit-editor.js",
   "module": "./dist/tock-vue-kit-editor.js",
   "types": "./dist/index.d.ts",
   "author": "Rodolphe Küffer <https://github.com/rkuffer>",
@@ -28,7 +28,7 @@
     "pinia": "^2.1.7"
   },
   "peerDependencies": {
-    "tock-vue-kit": "^0.3.7",
+    "tock-vue-kit": "^1.0.0",
     "vue": "^3.4.15"
   },
   "devDependencies": {
