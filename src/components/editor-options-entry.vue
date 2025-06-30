@@ -66,7 +66,17 @@ function checkConditions() {
   const defaultValue = deep_value(appOptionsModelGroup, props.path!);
   if (defaultValue.conditions) {
     defaultValue.conditions.forEach((condition: string) => {
+      let negate = false;
+      if (condition.startsWith("!")) {
+        negate = true;
+        condition = condition.replace(/^!/, "");
+      }
+
       if (!deep_value(props.currentOptions, condition)) {
+        if (!negate) {
+          active = false;
+        }
+      } else if (negate) {
         active = false;
       }
     });
