@@ -12,6 +12,10 @@
   "author": "Rodolphe Küffer <https://github.com/rkuffer>",
   "homepage": "https://github.com/theopenconversationkit/tock-vue-kit-editor",
   "licence": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theopenconversationkit/tock-vue-kit-editor.git"
+  },
   "scripts": {
     "dev": "vite build --mode development --watch",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -28,7 +32,7 @@
     "pinia": "^2.1.7"
   },
   "peerDependencies": {
-    "tock-vue-kit": "^1.0.0",
+    "tock-vue-kit": "^2.0.0",
     "vue": "^3.4.15"
   },
   "devDependencies": {

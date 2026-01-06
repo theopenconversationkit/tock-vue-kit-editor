@@ -131,6 +131,7 @@ export function getVariablesRootCategories(variables: CssVariable[]) {
     "message",
     "footnotes",
     "side-footnotes",
+    "feedback",
     "question",
     "button",
     "card",

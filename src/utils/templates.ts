@@ -1,13 +1,11 @@
 import type { Template } from "../models/template";
 import { personSvg, robotSvg } from "./images";
 
-const devRestPath = "http://localhost:8080/io/01/cmb/web";
-// const devRestPath = "http://localhost:8080/io/03/cmso/web";
-// const devRestPath = "http://localhost:8080/io/test1/new_assistant/web";
-// const devRestPath = "http://localhost:8080/io/arkeastore/arkeastore/web";
+let devRestPath;
+// devRestPath = "http://localhost:8080/io/app/new_assistant/web";
 
 const tockEndpointUrl =
-  process.env.NODE_ENV === "development"
+  process.env.NODE_ENV === "development" && devRestPath
     ? devRestPath
     : "https://demo-bot.tock.ai/io/tock/tockbot/web";
 
@@ -52,6 +50,9 @@ export const templates: Template[] = [
         "hsl( var(--tvk_colors_brand-hue) var(--tvk_colors_brand-saturation) 40% )",
       "--tvk_colors_light_background": "white",
       "--tvk_colors_light_surface2": "hsl(var(--tvk_colors_brand-hue) 10% 95%)",
+      "--tvk_feedback_flex-direction": "column",
+      "--tvk_feedback_margin": "0 0 -0.3em 0",
+      "--tvk_feedback_padding": "0",
       "--tvk_footnotes_footnote_background": "none",
       "--tvk_footnotes_margin": "1em 0em 0em 0em",
       "--tvk_message_answer_bot_align-items": "end",
@@ -127,6 +128,8 @@ export const templates: Template[] = [
       "--tvk_colors_light_background":
         "hsl(var(--tvk_colors_brand-hue) 0% 100%)",
       "--tvk_colors_light_surface2": "hsl(var(--tvk_colors_brand-hue) 10% 93%)",
+      "--tvk_feedback_align-self": "end",
+      "--tvk_feedback_margin": "0 0 0 1.5em",
       "--tvk_message_answer_bot_border-left":
         "1px solid var(--tvk_colors_neutral)",
       "--tvk_message_answer_bot_flex-direction": "row",
@@ -222,6 +225,7 @@ export const templates: Template[] = [
       "--tvk_colors_light_background": "white",
       "--tvk_colors_light_text1": "var(--tvk_colors_light_text2)",
       "--tvk_colors_light_text2": "hsl(var(--tvk_colors_brand-hue) 0% 30%)",
+      "--tvk_feedback_margin": "0 0 0 2.1em",
       "--tvk_footnotes_footnote_border":
         "1px solid var(--tvk_colors_dark_links)",
       "--tvk_footnotes_footnote_border-radius": "var(--tvk_base_radius)",
@@ -313,6 +317,7 @@ export const templates: Template[] = [
         "hsl(var(--tvk_colors_brand-hue) 5% 88%)",
       "--tvk_colors_light_text1": "hsl(var(--tvk_colors_brand-hue) 0% 10%)",
       "--tvk_colors_light_text2": "hsl(var(--tvk_colors_brand-hue) 0% 30%)",
+      "--tvk_feedback_margin": "0.3em 0 0 0",
       "--tvk_footnotes_footnote_background": "var(--tvk_colors_neutral-dim)",
       "--tvk_footnotes_footnote_line-height": "1.3",
       "--tvk_footnotes_footnote_padding": "1em",
@@ -518,6 +523,7 @@ export const templates: Template[] = [
       "--tvk_colors_light_background": "transparent",
       "--tvk_colors_dark_surface2": "hsl(var(--tvk_colors_brand-hue) 3% 15%)",
       "--tvk_colors_light_surface2": "hsl(var(--tvk_colors_brand-hue) 10% 97%)",
+      "--tvk_feedback_margin": "0.5em 0 0 0",
       "--tvk_footnotes_align-items": "start",
       "--tvk_footnotes_flex-direction": "column",
       "--tvk_footnotes_margin": "1.5em 0 0 0",
@@ -605,6 +611,7 @@ export const templates: Template[] = [
       "--tvk_colors_light_background": "transparent",
       "--tvk_colors_dark_surface2": "hsl(var(--tvk_colors_brand-hue) 3% 15%)",
       "--tvk_colors_light_surface2": "hsl(var(--tvk_colors_brand-hue) 10% 97%)",
+      "--tvk_feedback_margin": "0.5em 0 0 0",
       "--tvk_footnotes_align-items": "start",
       "--tvk_footnotes_flex-direction": "column",
       "--tvk_footnotes_font-size": "0.8rem",

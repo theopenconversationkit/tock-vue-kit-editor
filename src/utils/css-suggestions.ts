@@ -7,6 +7,7 @@ export const CssSuggestions: any = {
   ],
   "flex-direction": ["column", "column-reverse", "row", "row-reverse"],
   "flex-wrap": ["wrap", "nowrap"],
+  "align-self": ["start", "center", "end", "auto", "stretch"],
   "justify-content": [
     "start",
     "center",
