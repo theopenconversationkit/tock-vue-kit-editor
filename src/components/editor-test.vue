@@ -10,10 +10,14 @@ import { addTvkMessage } from "tock-vue-kit";
 const mainStore = useEditorStore();
 
 function addMessage(testMessage: any) {
-  const delay = testMessage.delay || 300;
+  const delay = testMessage.delay || 200;
 
   testMessage.messages.forEach(
     (message: Message, index: number, messages: Message[]) => {
+      if (!message.actionId) {
+        message.actionId = Math.random().toString(36).substring(7);
+      }
+
       setTimeout(() => {
         addTvkMessage(message);
         if (index < messages.length - 1) {
