@@ -1,6 +1,6 @@
 {
   "name": "tock-vue-kit-editor",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Vue 3 wysiwyg editor for the Tock Vue Kit",
   "type": "module",
   "files": [
